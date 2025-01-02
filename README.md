@@ -8,11 +8,11 @@ What’s Included
 * Multiple modules, each with its own README.md and step-by-step instructions.
 * Example files, scripts, and configurations to help you practice Docker Suite of products with core features.
 
-| Module                                             | Description                                       | Link       |
-|----------------------------------------------------|---------------------------------------------------|------------|
-| Docker Desktop and Init                            | Learn to containerize an application              | Row 1 Cell |
-| Docker Build Cloud                                 | Learn to Build your image with Docker Build Cloud | Row 2 Cell |
-| Secure your Software Supply Chain with Docker Scout| Learn to Build your image with Docker Build Cloud | Row 2 Cell |
+| Module                                             | Description                                       | Link                                                                                        |
+|----------------------------------------------------|---------------------------------------------------|---------------------------------------------------------------------------------------------|
+| Docker Desktop and Init                            | Learn to containerize an application              | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/docker%20init.md) |
+| Docker Build Cloud                                 | Learn to Build your image with Docker Build Cloud | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/docker%20init.md)  |
+| Secure your Software Supply Chain with Docker Scout| Learn to Build your image with Docker Scout | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/docker%20init.md)  |
 
 
 ### Feedback
