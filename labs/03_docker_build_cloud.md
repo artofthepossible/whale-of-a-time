@@ -41,9 +41,10 @@ Has support for ASP.NET, Java, Go, Node, Python, and Rust
    $ docker buildx build --builder cloud-demonstrationorg-default demonstrationorg/workshop-prep-demo-alpaquita:v1.0 
    ```
    Example: docker buildx build --builder cloud-demonstrationorg-default --tag demonstrationorg/whale-of-a-time:v1.0 .
- 
+  
+
     ```sh
-   $ docker build -t demonstrationorg/workshop-prep-demo-alpaquita:v1.0 .
+   $ docker build -t demonstrationorg/whale-of-a-time:v1.0 .
    ```
 
 3. Verify the images via docker desktop by navigate to docker desktop> click images 

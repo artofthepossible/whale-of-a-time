@@ -11,9 +11,9 @@ What’s Included
 | Module                                             | Description                                       | Link                                                                                        |
 |----------------------------------------------------|---------------------------------------------------|---------------------------------------------------------------------------------------------|
 | Docker Desktop and Init                            | Learn to containerize an application              | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/docker%20init.md) |
-| Docker Build Cloud                                 | Learn to Build your image with Docker Build Cloud | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/docker%20init.md)  |
+| Docker Tags                                        | Learn to Tag your images                          | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/02_docker_tag.md)  |
+| Docker Build Cloud                                 | Learn to Build your image with Docker Build Cloud | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/03_docker_build_cloud.md)  |
 | Secure your Software Supply Chain with Docker Scout| Learn to Build your image with Docker Scout | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/docker%20init.md)  |
-
 
 ### Feedback
 Feedback and contributions are always welcome!
