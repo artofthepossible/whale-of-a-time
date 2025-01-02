@@ -1,5 +1,5 @@
 
-### Docker Solutions Engineering Labs
+### Docker Solutions Workshop Labs
 
 Welcome to this Docker Workshop repo, where you can get hands-on experience with Docker Desktop, Docker Build Clould, Docker Scout, Docker Hub and Testcontainers while you containerize your sample java application. In this repository, you’ll find a variety of labs that walk you through using the Docker Suite of Products in different scenarios.
 
