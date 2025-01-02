@@ -15,7 +15,7 @@ What’s Included
 | Secure your Software Supply Chain with Docker Scout| Learn to Build your image with Docker Build Cloud | Row 2 Cell |
 
 
-Contributing
-If you’d like to add more labs or improve these, feel free to  open a pull request. Feedback and contributions are always welcome!
+### Feedback
+Feedback and contributions are always welcome!
 
 Enjoy your journey with Docker Desktop, Docker Hub, Docker Scout, Docker Build Cloud, Testcontainers 
