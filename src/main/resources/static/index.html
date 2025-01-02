@@ -9,18 +9,101 @@
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 50px;
+            margin: 0;
+            overflow: hidden;
         }
         h1 {
-            color: #333;
+            color: #fff;
+            position: relative;
+            z-index: 2;
         }
         p {
-            color: #666;
+            color: #ddd;
+            position: relative;
+            z-index: 2;
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .links {
+            position: relative;
+            z-index: 2;
+            margin-top: 20px;
+        }
+        .links a {
+            color: #00f;
+            text-decoration: none;
+            margin: 0 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to My Spring Boot Application</h1>
-    <p>This is the homepage of your Spring Boot application.</p>
-    <p>Feel free to explore and customize it as you like.</p>
+    <div class="video-background" id="video-background"></div>
+    <div class="overlay"></div>
+    <div class="content">
+        <h1>Welcome to My Spring Boot Application</h1>
+        <p>This is the homepage of your Spring Boot application.</p>
+        <p>Feel free to explore and customize it as you like.</p>
+        <div class="links">
+            <a href="https://github.com/artofthepossible/whale-of-a-time" target="_blank">Get it on GitHub</a>
+            <a href="https://github.com/artofthepossible/whale-of-a-time/actions" target="_blank">Use GitHub Actions</a>
+        </div>
+    </div>
+
+    <script>
+        // Load the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // Replace the 'video-background' div with an <iframe> and YouTube player after the API code downloads.
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('video-background', {
+                videoId: 'lI8xjrp0s6U', // YouTube video ID
+                playerVars: {
+                    autoplay: 1,
+                    loop: 1,
+                    playlist: 'lI8xjrp0s6U',
+                    controls: 0,
+                    showinfo: 0,
+                    modestbranding: 1,
+                    mute: 1,
+                    fs: 0,
+                    cc_load_policy: 0,
+                    iv_load_policy: 3,
+                    autohide: 1
+                },
+                events: {
+                    onReady: function (e) {
+                        e.target.mute();
+                        setTimeout(function() {
+                            e.target.stopVideo();
+                        }, 49000); // Stop the video after 50 seconds
+                    }
+                }
+            });
+        }
+    </script>
 </body>
 </html>
