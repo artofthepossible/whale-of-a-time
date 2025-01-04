@@ -1,7 +1,7 @@
 ### Introduction to Docker Build Cloud Lab
 
 Overview
-In this lab, you'll learn the fundamentals docker build cloud.
+In this lab, you'll learn the fundamentals of docker build cloud.
 
 Time to Complete: 20-30 minutes
 
@@ -25,64 +25,66 @@ Replace ORG with the Docker Hub namespace of your Docker organization.
 
 
 ### Overview
-Creates Docker-related starter files for your project
-Supplies .dockerignore, Dockerfile, and compose.yaml files
-Has support for ASP.NET, Java, Go, Node, Python, and Rust
+Cloud-based builders let developers build faster especially when they’re working on older machines.
+A pair of AMD and ARM builders help developers perform multi-architecture builds without spending hours configuring and rebuilding for emulators.
+A shared cache empowers teams working on the same repo to cut wait times by avoiding duplicative work.
 
+
+### Part 1: Build Image using Docker Build Cloud
 1. Open a terminal in the root directory of your project.
 
-2. Run the following command to build the Docker image using Docker Build Cloud:
+2. Run the following command to build the Docker image using *Docker Build Cloud*
    ```sh
    $ docker buildx build --builder your-dbc-builder your-dh-org/your-image-name:tag 
    ```
-   Example: docker buildx build --builder cloud-demonstrationorg-default demonstrationorg/whale-of-a-time:v1.0
+   Example: docker buildx build --builder cloud-demonstrationorg-default demonstrationorg/whale-of-a-time:v1.0 
 
-   ```sh
-   $ docker buildx build --builder cloud-demonstrationorg-default demonstrationorg/workshop-prep-demo-alpaquita:v1.0 
-   ```
-   Example: docker buildx build --builder cloud-demonstrationorg-default --tag demonstrationorg/whale-of-a-time:v1.0 .
-  
+### Part 2: Build Image using Default Builder
+3. Run the following command to build the Docker image using the *default builder*
 
     ```sh
    $ docker build -t demonstrationorg/whale-of-a-time:v1.0 .
    ```
-
-3. Verify the images via docker desktop by navigate to docker desktop> click images 
-
-
-4. To verify via cli, Run the command via terminal:
+### Part 3: Review images built with Docker Build Cloud versus default Builder
+3. Verify the images via docker desktop by Viewing the Build Details in Docker Desktop
    ```sh
-   $ docker images
+   On the left hand menu, Select Builds the Build History
+   For each Build History Item, rewivew the Build History Details
    ```
+### Part 4: Base Images
 
-5. Base Images
-Discussion:
-Spend time reviewing images built (size and packages).
+5. Updating the Base Image
+For most cases, you don't need to create your own base image. Docker Hub contains a vast library of Docker images that are suitable for use as a base image in your build. 
+Docker Official Images are specifically designed as a set of hardened, battle-tested images that support a wide variety of platforms, languages, and frameworks. 
+There are also Docker Verified Publisher images, created by trusted publishing partners, verified by Docker.
+
+6. Discussion
+Identify some base images that you want to use for your application and make some changes in your dockerfile
+1. Update the Dockerfile for a sample application.
+2. Build the image with an appropriate tag.
+3. Tag the image with a semantic version.
+4. Push the image to Docker Hub.
+
+7. Spend time reviewing images built (size and packages).
+
 Existing base image
 ```sh
 FROM eclipse-temurin:21-jre-jammy 
 ```
-6. 7. What happens if you switch the base image to something like this:
+7. What happens if you switch the base image to something like this:
 ```sh
-FROM bellsoft/liberica-native-image-kit-container
+FROM bellsoft/liberica-openjdk-alpine:21
 ```
-8. What other ways can we optimzie the base images and packages
+8. What other ways can we optimize the base images and packages
 
 9. Using docker desktop and reviewing the base image how does the size and number of packages shift?
 
 10. Which base images results in less vulnerabilities?
 
-Temurin - eclipse-temurin:21-jdk-jammy: 
-Size: 413.95 MB: 221 packages and 0 Critical and High CVEs 
-
-Alpaquita - bellsoft/liberica-openjdk-alpine:21: 
-Size: 227.63 MB: 38 packages and 0 Critical and High CVEs
-
-Bitnami - bitnami/java:21: 
-Size: 981.07 MB: 197 packages and 0 Critical and High CVEs
 
 
-# Reviewing Built Images with the Builds Tab
+
+### Part 5: Reviewing Built Images with the Builds Tab
 
 1. Open Docker Desktop:
    - Launch Docker Desktop from your applications menu.
@@ -131,7 +133,7 @@ Size: 981.07 MB: 197 packages and 0 Critical and High CVEs
    - In the "History" section, you can see the timing for each step of the build process. This helps you identify which steps took the longest and whether they were cached or not.
    - Cached steps are typically faster because Docker reuses the existing layers instead of rebuilding them from scratch.
 
-# Test Locally
+### Part 6:  Test Locally
 1. Run the container locally: 
    ```sh 
    docker compose up --build
