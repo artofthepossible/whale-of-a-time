@@ -46,3 +46,15 @@ spring-boot-app/values.yaml
 spring-boot-app/Chart.yaml
 spring-boot-app/.helmignore
 .gitignore
+whale-of-a-time/.helmignore
+whale-of-a-time/whale-of-a-time-0.1.0.tgz
+whale-of-a-time/templates/_helpers.tpl
+whale-of-a-time/templates/deployment.yaml
+whale-of-a-time/templates/hpa.yaml
+whale-of-a-time/templates/ingress.yaml
+whale-of-a-time/Chart.yaml
+whale-of-a-time/values.yaml
+whale-of-a-time/templates/NOTES.txt
+whale-of-a-time/templates/service.yaml
+whale-of-a-time/templates/serviceaccount.yaml
+whale-of-a-time/templates/tests/test-connection.yaml
