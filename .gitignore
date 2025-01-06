@@ -34,3 +34,15 @@ build/
 .dockerignore
 compose.yaml
 Dockerfile
+spring-boot-app/templates/tests/test-connection.yaml
+spring-boot-app/templates/serviceaccount.yaml
+spring-boot-app/templates/service.yaml
+spring-boot-app/templates/NOTES.txt
+spring-boot-app/templates/ingress.yaml
+spring-boot-app/templates/hpa.yaml
+spring-boot-app/templates/deployment.yaml
+spring-boot-app/templates/_helpers.tpl
+spring-boot-app/values.yaml
+spring-boot-app/Chart.yaml
+spring-boot-app/.helmignore
+.gitignore
