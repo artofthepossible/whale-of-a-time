@@ -71,10 +71,16 @@ Existing base image
 ```sh
 FROM eclipse-temurin:21-jre-jammy 
 ```
-7. What happens if you switch the base image to something like this:
+7a. What happens if you switch to another base image to something like this:
+```sh
+FROM FROM bitnami/java:21
+```
+
+7b. What happens if you switch the base image to something like this:
 ```sh
 FROM bellsoft/liberica-openjdk-alpine:21
 ```
+
 8. What other ways can we optimize the base images and packages
 
 9. Using docker desktop and reviewing the base image how does the size and number of packages shift?
@@ -82,67 +88,70 @@ FROM bellsoft/liberica-openjdk-alpine:21
 10. Which base images results in less vulnerabilities?
 
 
-
-
 ### Part 5: Reviewing Built Images with the Builds Tab
 
 1. Open Docker Desktop:
    - Launch Docker Desktop from your applications menu.
-
+  
 2. Navigate to the Builds Tab:
+```sh
    - Click on the "Builds" tab in Docker Desktop to see a list of your recent builds.
 
 3. Select a Built Image:
+```sh
    - Click on the image you want to review. This will open the details view for that image.
-
+```
 4. Review the Info Section:
+```sh
    - The "Info" section provides general information about the image, such as the image ID, size, and creation date.
-
+```
 5. Review the Source Section:
-   - The "Source" section shows the Dockerfile or build configuration used to create the image. This helps you understand the steps and commands used during the build process.
-
+```sh
+   - The "Source" section shows the Dockerfile or build configuration used to create the image.
+   This helps you understand the steps and commands used during the build process.
+```
 6. Review the Logs Section:
-   - The "Logs" section contains the build logs, which provide detailed information about each step of the build process. You can see the output of each command executed during the build.
+```sh
+   - The "Logs" section contains the build logs, which provide detailed information about each step of the build process. 
+   You can see the output of each command executed during the build.
 
-7. Review the History Section:
-   - The "History" section shows a chronological list of all the layers and commands that were executed to create the image. This includes both cached and non-cached steps.
 
-8. Walkthrough of Build Timing:
-   - In the "History" section, you can see the timing for each step of the build process. This helps you identify which steps took the longest and whether they were cached or not.
-   - Cached steps are typically faster because Docker reuses the existing layers instead of rebuilding them from scratch.
-
-9. Adding `--sbom=true` and `--provenance=true` to Build Commands:
-   - When you add `--sbom=true` and `--provenance=true` to your build commands, Docker includes additional metadata in the resulting image.
-   - `--sbom=true` generates a Software Bill of Materials (SBOM) that lists all the components and dependencies included in the image.
-   - `--provenance=true` adds provenance information, which provides details about the build environment and process, ensuring the integrity and authenticity of the image.
-
-10. Example build command with `--sbom=true` and `--provenance=true`:
+7. Walkthrough of Build Timing:
+```sh
+   - In the "History" section (if available), you can see the timing for each step of the build process. This helps you identify which steps took the longest and whether they were cached or not.</br>
+   - Cached steps are typically faster because Docker reuses the existing layers instead of rebuilding them from scratch.</br>
+```
+8. Adding `--sbom=true` and `--provenance=true` to Build Commands:
+```sh
+   - When you add `--sbom=true` and `--provenance=true` to your build commands, Docker includes additional metadata in the resulting image. 
+   - `--sbom=true` generates a Software Bill of Materials (SBOM) that lists all the components and dependencies included in the image.</br>
+   - `--provenance=true` adds provenance information, which provides details about the build environment and process, ensuring the integrity and authenticity of the image.</br>
+```
+9. Example build command with `--sbom=true` and `--provenance=true`:
 
    ```sh
-   docker build -t demonstrationorg/workshop-prep-demo-alpaquita:v1.0 --sbom=true --provenance=true .
+   docker build -t demonstrationorg/whale-of-a-time-alpaquita-liberica-openjdk-alpine:v1.0 --sbom=true --provenance=true .
    ```
 
-
-11. This command specifies the use of the faster builder Docker build cloud: cloud-demonstrationorg-default builder and includes the --sbom and --provenance flags for generating SBOM and provenance information.
+10. This command specifies the use of the faster builder Docker build cloud: cloud-demonstrationorg-default builder and includes the --sbom and --provenance flags for generating SBOM and provenance information.
 
  ```sh
-   docker buildx build --builder cloud-demonstrationorg-default --sbom=true --provenance=true -t demonstrationorg/workshop-prep-demo-alpaquita:v1.0 .
+   docker buildx build --builder cloud-demonstrationorg-default --sbom=true --provenance=true -t  demonstrationorg/whale-of-a-time-alpaquita-liberica-openjdk-alpine:v1.0 .
 ```
 
-12. Walkthrough of Build Timing:
-   - In the "History" section, you can see the timing for each step of the build process. This helps you identify which steps took the longest and whether they were cached or not.
-   - Cached steps are typically faster because Docker reuses the existing layers instead of rebuilding them from scratch.
+11. Review the History Section:
+   - Walkthrough of Build Timing for an image with historical details </br>
+   - In the "History" section, you can see the timing for each step of the build process. This helps you identify which steps took the longest and whether they were cached or not.</br>
+   - Cached steps are typically faster because Docker reuses the existing layers instead of rebuilding them from scratch.</br>
+```sh
+   - The "History" section shows a chronological list of all the layers and commands that were executed to create the image. 
+   This includes both cached and non-cached steps.
+```
 
 ### Part 6:  Test Locally
 1. Run the container locally: 
    ```sh 
    docker compose up --build
-   ```
-
-
-b. Alternate command to run the container: 
-   ```sh 
-   docker run -p 8080:8080 spring-boot-app:1.0
    ```
 
 
