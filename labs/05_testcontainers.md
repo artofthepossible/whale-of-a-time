@@ -155,7 +155,7 @@ Open your web browser and navigate to:
    ```
 You should see the text "Hello World!".
 
-4. Running Tests
+4. Running Tests, open a separate terminal and invoke the following command
 The application includes unit tests that use the Testcontainers library to validate the appearance of the text "Hello World!" when the application starts.
 
 To run the tests, use the following command:
@@ -163,4 +163,6 @@ To run the tests, use the following command:
     mvn test
    ```
 
-
+### Troubleshooting 
+### ContainerLaunch Container startup failed
+Error: Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.2:test

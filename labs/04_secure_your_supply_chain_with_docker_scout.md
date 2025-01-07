@@ -116,12 +116,9 @@ The fix suggested by Docker Scout is to update the underlying vulnerable express
         -    "express": "4.17.1"
         +    "express": "4.17.3"
    }
-    ```
-     ```sh 
+    
         - #FROM alpine:3.14@sha256:eb3e4e175ba6d212ba1d6e04fc0782916c08e1c9d7b45892e9796141b1d379ae
-        + FROM alpine:3.21
-
-   }
+        + FROM alpine:3.21   
     ```
 3. Rebuild the image with a new tag and push it to your Docker Hub repository:
 
@@ -164,8 +161,8 @@ To improve the health score of an image, take steps to ensure that the image is 
 4. Analyze the policy compliance for your repositories, and take actions to ensure your images are policy-compliant. </br>
 Since policies are weighted differently, prioritize the policies with the highest scores for a greater impact on your image's overall score. </br>
 a. In Docker Desktop, select View in Hub
-b. In Docker Hub, select [view in Docker Scout Dashboard] (https://scout.docker.com/reports/org/demonstrationorg/images/host/hub.docker.com/repo/demonstrationorg%2Fwhale-of-a-time-scout-demo/tag/v3/digest/sha256%3A1ac649615092d9e30ff4d6c10ad84733d5212451e406b9a331143c1208f18ff4?utm_source=hub&utm_medium=actions-button&_gl=1*1kj2f6f*_gcl_aw*R0NMLjE3MzA3NjQyMDkuQ2owS0NRaUFfcUc1QmhEVEFSSXNBQTBVSFNLZ2NEcUJJenQ3a1JfaktfSmoyR1JBaC1heHd4QlJaQmpaMEc3TUlmand6STNPUktqVDhUUWFBbVdjRUFMd193Y0I.*_gcl_au*MTQxNjYwMDAzNC4xNzMzNzczMTAy*_ga*ODQyNDk2NzMyLjE3MDI0MDA3MjY.*_ga_XJWPQMJYHQ*MTczNjE4NjcxNy4xNTg1LjEuMTczNjE4OTQ5OC42MC4wLjA.)
-c. Under [Policy Status] (https://scout.docker.com/reports/org/demonstrationorg/images/host/hub.docker.com/repo/demonstrationorg%2Fwhale-of-a-time-scout-demo/tag/v3/digest/sha256%3A1ac649615092d9e30ff4d6c10ad84733d5212451e406b9a331143c1208f18ff4/policy)
+b. In Docker Hub, select [view in Docker Scout Dashboard](https://scout.docker.com/reports/org/demonstrationorg/images/host/hub.docker.com/repo/demonstrationorg%2Fwhale-of-a-time-scout-demo/tag/v3/digest/sha256%3A1ac649615092d9e30ff4d6c10ad84733d5212451e406b9a331143c1208f18ff4?utm_source=hub&utm_medium=actions-button&_gl=1*1kj2f6f*_gcl_aw*R0NMLjE3MzA3NjQyMDkuQ2owS0NRaUFfcUc1QmhEVEFSSXNBQTBVSFNLZ2NEcUJJenQ3a1JfaktfSmoyR1JBaC1heHd4QlJaQmpaMEc3TUlmand6STNPUktqVDhUUWFBbVdjRUFMd193Y0I.*_gcl_au*MTQxNjYwMDAzNC4xNzMzNzczMTAy*_ga*ODQyNDk2NzMyLjE3MDI0MDA3MjY.*_ga_XJWPQMJYHQ*MTczNjE4NjcxNy4xNTg1LjEuMTczNjE4OTQ5OC42MC4wLjA.)
+c. Under [Policy Status](https://scout.docker.com/reports/org/demonstrationorg/images/host/hub.docker.com/repo/demonstrationorg%2Fwhale-of-a-time-scout-demo/tag/v3/digest/sha256%3A1ac649615092d9e30ff4d6c10ad84733d5212451e406b9a331143c1208f18ff4/policy)
 
 ### Part 6: Docker Scout:Building images with provenance and SBOMs
 d. For example, To Fix - Missing supply chain attestation(s), Rebuild the image with a new tag and push it to your Docker Hub repository:

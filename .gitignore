@@ -58,3 +58,10 @@ whale-of-a-time/templates/NOTES.txt
 whale-of-a-time/templates/service.yaml
 whale-of-a-time/templates/serviceaccount.yaml
 whale-of-a-time/templates/tests/test-connection.yaml
+pom.xml
+src/test/java/com/example/MyAppTest.java
+pom.xml
+pom.xml
+pom.xml
+pom.xml
+pom.xml
