@@ -19,12 +19,19 @@ Time to Complete: 20-30 minutes
 
 ### How to Use This Hands-On Lab
 
-1. To get started with Testcontainers Cloud, you need to completed the following:
+1. To get started with Testcontainers Cloud, you need to completed the following:</br>
 a. Testcontainers Cloud Account: https://app.testcontainers.cloud/
-b.Install Java 17 or newer
+b.Install Java 17 or newer</br>
 You'll need Java 17 or newer for this workshop. Testcontainers libraries are compatible with Java 8+, but this workshop uses a Spring Boot 3.x application which requires Java 17 or newer. </br>
 
-We would recommend using SDKMAN to install Java on your machine if you are using MacOS, Linux or Windows WSL. </br>
+c. Maven 3.6.0 or higher</br>
+
+d. Login to docker hub docker login -u yourdockerid. Use the (personal access token)[https://www.docker.com/blog/docker-hub-new-personal-access-tokens/]</br>
+
+e. Set you environmnet variables</br>
+
+export DH_USERNAME=yourdockerid </br>
+export DH_oPAT=dckr_pat_yourpat </br>
 
 ### Part 1: Add Unit Tests
 Generate a unit test using Testcontainers that validates the text "Welcome to My Spring Boot Application" and "Get it on GitHub" are found in the UI of your Spring Boot application
