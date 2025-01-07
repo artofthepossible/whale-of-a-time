@@ -27,9 +27,11 @@ You'll need Java 17 or newer for this workshop. Testcontainers libraries are com
 c. Maven 3.6.0 or higher</br>
 
 d. Login to docker hub docker login -u yourdockerid. Use the (personal access token)[https://www.docker.com/blog/docker-hub-new-personal-access-tokens/]</br>
-
+```sh
+docker login -u yourdockerid 
+yourpat
+```
 e. Set you environmnet variables</br>
-
 export DH_USERNAME=yourdockerid </br>
 export DH_oPAT=dckr_pat_yourpat </br>
 
@@ -40,42 +42,83 @@ Here's how you can set it up:
 1. Add the necessary dependencies to your pom.xml:
 
 ```sh
-<dependencies>
-    <!-- Spring Boot Test Dependencies -->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-test</artifactId>
-        <scope>test</scope>
-    </dependency>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.4.0-SNAPSHOT</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.example</groupId>
+	<artifactId>whale-of-a-time</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>whale-of-a-time</name>
+	<description>unbox and containerize your Spring Boot app</description>
+	<url/>
+	<licenses>
+		<license/>
+	</licenses>
+	<developers>
+		<developer/>
+	</developers>
+	<scm>
+		<connection/>
+		<developerConnection/>
+		<tag/>
+		<url/>
+	</scm>
+	<properties>
+		<java.version>21</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
 
-    <!-- Testcontainers Dependencies -->
-    <dependency>
-        <groupId>org.testcontainers</groupId>
-        <artifactId>testcontainers</artifactId>
-        <version>1.16.0</version>
-        <scope>test</scope>
-    </dependency>
-    <dependency>
-        <groupId>org.testcontainers</groupId>
-        <artifactId>junit-jupiter</artifactId>
-        <version>1.16.0</version>
-        <scope>test</scope>
-    </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>testcontainers</artifactId>
+			<version>1.16.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>1.16.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.15.3</version>
+		</dependency>
 
-    <!-- Jsoup Dependency -->
-    <dependency>
-        <groupId>org.jsoup</groupId>
-        <artifactId>jsoup</artifactId>
-        <version>1.14.3</version>
-        <scope>test</scope>
-    </dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
-    <!-- RestTemplate Dependency -->
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-web</artifactId>
-    </dependency>
-</dependencies>
+</project>
+
    ```
 2. Create a unit test class using Testcontainers
 This test does the following:
@@ -83,23 +126,22 @@ This test does the following:
 Uses Testcontainers to start the Spring Boot application and a Chrome browser container.
 Navigates to the application's URL.
 Validates that the text "Welcome to My Spring Boot Application" and the link "Get it on GitHub" are present in the UI.
-Make sure to replace "my-spring-boot-app:latest" with the actual image name of your Spring Boot application.
+Make sure to replace "demonstrationorg/whale-of-a-time-alpaquita-liberica-openjdk-alpine:v1.0" with the actual image name of your Spring Boot application.
 
 
    ```sh
-package com.example;
+package com.example.whale_of_a_time;
 
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.web.client.RestTemplate;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.containers.wait.strategy.Wait;
 
 import java.io.IOException;
 
@@ -107,14 +149,16 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @Testcontainers
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class MyAppTest {
+class WhaleOfATimeApplicationTests {
 
     @LocalServerPort
     private int port;
 
     @Container
-    public static GenericContainer<?> app = new GenericContainer<>("my-spring-boot-app:latest")
-            .withExposedPorts(8080);
+    public static GenericContainer<?> app = new GenericContainer<>("demonstrationorg/whale-of-a-time-alpaquita-liberica-openjdk-alpine:v1.0")
+            .waitingFor(Wait.forHttp("/"))
+            .withExposedPorts(8080)
+            .withCommand("java", "-jar", "/app/app.jar");
 
     private static String baseUrl;
 
@@ -124,16 +168,24 @@ public class MyAppTest {
     }
 
     @Test
-    public void testHomePage() throws IOException {
+    void contextLoads() {
+    }
+
+    @Test
+    void testHomePage() throws IOException {
+        String baseUrl = WhaleOfATimeApplicationTests.baseUrl;
         RestTemplate restTemplate = new RestTemplate();
-        String body = restTemplate.getForObject(baseUrl, String.class);
+        String response = restTemplate.getForObject(baseUrl, String.class);
 
-        Document doc = Jsoup.parse(body);
+        // Parse the HTML response using Jsoup
+        org.jsoup.nodes.Document doc = Jsoup.parse(response);
 
+        // Assert that the title contains
         assertThat(doc.body().text()).contains("Welcome to My Spring Boot Application");
         assertThat(doc.body().text()).contains("Get it on GitHub");
     }
 }
+
    ```
 
 ### Part 2: Run Unit Tests using Testcontainers Cloud
@@ -163,6 +215,3 @@ To run the tests, use the following command:
     mvn test
    ```
 
-### Troubleshooting 
-### ContainerLaunch Container startup failed
-Error: Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.2:test
