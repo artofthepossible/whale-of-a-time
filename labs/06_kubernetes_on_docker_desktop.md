@@ -59,6 +59,37 @@ This command will generate the following files:
     └── tests/    # The test files
    ```
 
+1b. Update the chart.yaml to point to the target deployment artifcact/image 
+   ```sh
+- image:
+  - repository: nginx
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+  - tag: ""
+
++ image:
+  + repository: demonstrationorg/whale-of-a-time-alpaquita-liberica-openjdk-alpine
+    pullPolicy: IfNotPresent
+    # Overrides the image tag whose default is the chart appVersion.
+  + tag: "v1.0"
+   ```
+
+1b. Update the values.yaml to point to the target deployment artifcact/image 
+   ```sh
+service:
+  -type: ClusterIP
+  -port: 80
+
+service:
+  +type: NodePort
+  +port: 8080
+
+- imagePullSecrets: []
+
++ imagePullSecrets:
++    - name: regcred
+   ```
+
 2. Navigate to the Helm Chart Directory:
 a. Change directory to the Helm chart location:
 
@@ -81,56 +112,67 @@ helm install whale-of-a-time .
 ```
 This command installs a chart archive.
 
-
-```sh kubectl cluster-info --context docker-desktop
+```sh 
 NAME: whale-of-a-time
-LAST DEPLOYED: Mon Jan  6 16:23:03 2025
+LAST DEPLOYED: Mon Jan  6 18:06:25 2025
 NAMESPACE: default
 STATUS: deployed
 REVISION: 1
 NOTES:
 1. Get the application URL by running these commands:
-  export POD_NAME=$(kubectl get pods --namespace default -l "app.kubernetes.io/name=whale-of-a-time,app.kubernetes.io/instance=whale-of-a-time" -o jsonpath="{.items[0].metadata.name}")
-  export CONTAINER_PORT=$(kubectl get pod --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
-  echo "Visit http://127.0.0.1:8080 to use your application"
-  kubectl --namespace default port-forward $POD_NAME 8080:$CONTAINER_PORT
+  export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services whale-of-a-time)
+  export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
+  echo http://$NODE_IP:$NODE_PORT
+bash-3.2$ export NODE_PORT=$(kubectl get --namespace default -o jsonpath="{.spec.ports[0].nodePort}" services whale-of-a-time)
+bash-3.2$ export NODE_IP=$(kubectl get nodes --namespace default -o jsonpath="{.items[0].status.addresses[0].address}")
+bash-3.2$ echo http://$NODE_IP:$NODE_PORT
 
-Kubernetes control plane is running at https://127.0.0.1:59872
-CoreDNS is running at https://127.0.0.1:59872/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
 ```
 
-2. Verify the Deployment: Check the Helm Release: Verify that the Helm release is deployed successfully.
+2. Access the Application:
+Forward a local port to the service to access the application:
+Expose the services via node port
+```sh
+kubectl port-forward svc/whale-of-a-time 8080:8080
+```
+
+3. Open your browser and navigate to http://localhost:8080 to access the Spring Boot application.
+
+
+### Part 4: Cleanup
+To uninstall the release
+
+```sh
+helm uninstall whale-of-a-time
+```
+
+5. Check the status of the pods:
+To lists all pods running in a cluster, along with basic information like pod name, status, and age
+
+```sh
+kubectl get pods
+```
+
+6. Check the Services: Ensure that the pods are running.
+To  List one or more services
+```sh
+kubectl get services
+```
+
+### Part 5: Extra Commands
+
+1. Verify that the Helm release is undeployed successfully.
 Check the Helm Release: Verify that the Helm release is deployed successfully.
 ```sh
 helm list
 ```
 
-3. Check the status of the deployment:
-```sh
-kubectl get pods
-```
-
-4. Check the Pods: Ensure that the pods are running.
-
-```sh
-kubectl get services
-```
-
-5. Check the Logs: View the logs of the application pod to ensure it is running correctly.
+2. Check the Logs: View the logs of the application pod to ensure it is running correctly.
 
 ```sh
 kubectl logs <pod-name>
 ```
 
-
-6. Access the Application:
-Forward a local port to the service to access the application:
-
-```sh
-kubectl port-forward svc/whale-of-a-time 8080:80
-```
-
-7. Open your browser and navigate to http://localhost:8080 to access the Spring Boot application.
 
 By following these steps, you should have used helm to deploy an application to a local kind cluster and be able to curl the endpoint.
 
