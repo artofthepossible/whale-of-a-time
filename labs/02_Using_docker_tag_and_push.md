@@ -6,7 +6,7 @@ How to Build, tag, and publish a simple Docker image following best practices.
 Why Proper tagging is crucial for version control and deployment.
 Adhering to best practices enhances collaboration and reduces errors.
 
-Time to Complete: 15-20 minutes
+Time to Complete: 5-10 minutes
 
 ### How to Use This Hands-On Lab
 
@@ -45,13 +45,6 @@ $ docker push <ORG>/concepts-build-image-demo:tagname
 Example:docker push demonstrationorg/whale-of-a-time:v1.0
 Replace ORG with the Docker Hub namespace of your Docker organization.
 
-
-### Part 2: Tagging Overview (New Image)
-
-1. Create a Dockerfile for a sample application.
-2. Build the image with an appropriate tag.
-3. Tag the image with a semantic version.
-4. Push the image to Docker Hub.
 
 ### Resources:
 

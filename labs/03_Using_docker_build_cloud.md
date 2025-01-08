@@ -3,7 +3,7 @@
 Overview
 In this lab, you'll learn the fundamentals of docker build cloud.
 
-Time to Complete: 20-30 minutes
+Time to Complete: 15-20 minutes
 
 ### How to Use This Hands-On Lab
 1. To get started with Docker Build Cloud, you need to:
@@ -37,7 +37,8 @@ A shared cache empowers teams working on the same repo to cut wait times by avoi
    ```sh
    $ docker buildx build --builder your-dbc-builder your-dh-org/your-image-name:tag 
    ```
-   Example: docker buildx build --builder cloud-demonstrationorg-default demonstrationorg/whale-of-a-time:v1.0 
+   Example: 
+   docker buildx build --builder cloud-demonstrationorg-default -t demonstrationorg/demo-whale-of-a-time:v1.0 .
 
 ### Part 2: Build Image using Default Builder
 3. Run the following command to build the Docker image using the *default builder*

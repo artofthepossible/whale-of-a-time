@@ -3,7 +3,7 @@
 Overview
 In this lab, you'll learn the fundamentals docker init CLI commands to kickstart your containerization process, understand the inputs and outputs.
 
-Time to Complete: 15-20 minutes
+Time to Complete: 5-10 minutes
 
 ### How to Use This Hands-On Lab
 1. You have installed the latest version of Docker Desktop.
@@ -32,14 +32,19 @@ Follow prompts
 What application platform does your project use? Java
 What’s the relative directory (with a leading .) for your app? ./src
 What version of Java do you want to use? 21
-What port does your server listen on? 
+What port does your server listen on? 8080
 ```
 
 ### Part 2: Start your application
 
 ```sh
-$ docker compose up -build
+$ docker compose up --build
 ```
+In your terminal you can use the following commands to bring up Docker Desktop
+```sh
+$ v View in Docker Desktop
+```
+Access the Application:
 Your application will be available at http://localhost:8080
 
 ### Part 3: Stop your application 
