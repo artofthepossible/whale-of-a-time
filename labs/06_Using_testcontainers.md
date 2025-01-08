@@ -189,6 +189,7 @@ class WhaleOfATimeApplicationTests {
    ```
 
 ### Part 2: Run Unit Tests using Testcontainers Cloud
+Build the application by running the command mvn clean install then you can simply use the following mvn spring-boot:run to test the application.
 
 1. Build the Application
    ```sh
@@ -199,7 +200,9 @@ class WhaleOfATimeApplicationTests {
     mvn spring-boot:run
    ```
 The application will start and be accessible at http://localhost:8080/.
-
+   ```sh
+   	curl http://localhost:8080/
+   ```
 3. Access the Endpoint
 Open your web browser and navigate to:
    ```sh
@@ -208,7 +211,7 @@ Open your web browser and navigate to:
 You should see the text "Hello World!".
 
 4. Running Tests, open a separate terminal and invoke the following command
-The application includes unit tests that use the Testcontainers library to validate the appearance of the text "Hello World!" when the application starts.
+The application includes unit tests that use the Testcontainers library to validate the appearance of the text "Welcome to My Spring Boot Application" when the application starts.
 
 To run the tests, use the following command:
    ```sh

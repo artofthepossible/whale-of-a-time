@@ -73,7 +73,7 @@ FROM eclipse-temurin:21-jre-jammy
 ```
 7a. What happens if you switch to another base image to something like this:
 ```sh
-FROM FROM bitnami/java:21
+FROM bitnami/java:21
 ```
 
 7b. What happens if you switch the base image to something like this:
