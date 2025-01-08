@@ -161,7 +161,7 @@ Provenance, which details how the image was built.</br>
 ```
 
 ### Part 7:  Test Locally
-1. Run the container locally: 
+1. When you're ready, start your application, Run the container locally: 
    ```sh 
    docker compose up --build
    ```
@@ -172,5 +172,19 @@ Provenance, which details how the image was built.</br>
    curl localhost:8080
    ```
 
+
 ### Resources
 https://docs.docker.com/build-cloud/
+
+First, build your image, e.g.: `docker build -t myapp .`.
+
+If your cloud uses a different CPU architecture than your development
+machine (e.g., you are on a Mac M1 and your cloud provider is amd64),
+you'll want to build the image for that platform, e.g.:
+`docker build --platform=linux/amd64 -t myapp .`.
+
+Then, push it to your registry, e.g. `docker push myregistry.com/myapp`.
+Consult Docker's [getting started](https://docs.docker.com/go/get-started-sharing/)
+docs for more detail on building and pushing.
+
+
