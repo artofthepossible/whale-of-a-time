@@ -10,12 +10,12 @@ What’s Included
 
 | Module                                             | Description                                       | Link                                                                                        |
 |----------------------------------------------------|---------------------------------------------------|---------------------------------------------------------------------------------------------|
-| Docker Desktop and Init                            | Learn how to containerize an application              | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/docker%20init.md) |
-| Docker Tags                                        | Learn how to Tag your images                          | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/02_docker_tag.md)  |
-| Docker Build Cloud                                 | Learn how to Build your image with Docker Build Cloud | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/03_docker_build_cloud.md)  |
-| Secure your Software Supply Chain with Docker Scout| Learn how to Build your image with Docker Scout | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/docker%20init.md)  |
-| Deploy your Application| Learn how to use the local kubernetes cluster | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/06_kubernetes_on_docker_desktop.md)  |
-| Using Testcontainers| Learn how to setup and use Testcontainers and Testcontainers Cloud | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/05_testcontainers.md)  |
+| Using Docker Desktop and Docker Init                            | Learn how to containerize an application              | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/01_Using_docker_init.md) |
+| Using Docker Tag                                       | Learn how to Tag and Push your images                          | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/02_Using_docker_tag_and_push.md)  |
+| Using Docker Build Cloud                                 | Learn how to Build your image with Docker Build Cloud | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/03_Using_docker_build_cloud.md)  |
+| Deploy your Application| Learn how to use the local kubernetes cluster | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/04_Using_kubernetes_on_docker_desktop.md)  |
+| Secure your Software Supply Chain with Docker Scout| Learn how to Build your image with Docker Scout | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/05_Secure_your_supply_chain_with_docker_scout.md)  |
+| Using Testcontainers| Learn how to setup and use Testcontainers and Testcontainers Cloud | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/06_Using_testcontainers.md)  |
 
 ### Feedback
 Feedback and contributions are always welcome!
