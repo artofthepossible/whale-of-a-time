@@ -3,7 +3,7 @@
 Overview
 In this lab, you'll learn the fundamentals of kubernetes on docker desktop.
 
-Time to Complete: 30-45 minutes
+Time to Complete: 15-20 minutes
 
 ### How to Use This Hands-On Lab
 1. To get started with kubernetes on docker desktop, you need to completed the following:
@@ -59,7 +59,7 @@ This command will generate the following files:
     └── tests/    # The test files
    ```
 
-1b. Update the chart.yaml to point to the target deployment artifcact/image 
+1b. Update the values.yaml to point to the target deployment artifcact/image 
    ```sh
 - image:
   - repository: nginx
@@ -84,10 +84,7 @@ service:
   +type: NodePort
   +port: 8080
 
-- imagePullSecrets: []
 
-+ imagePullSecrets:
-+    - name: regcred
    ```
 
 2. Navigate to the Helm Chart Directory:
@@ -129,6 +126,10 @@ bash-3.2$ echo http://$NODE_IP:$NODE_PORT
 
 ```
 
+Note: If you don't see the above, save the helm chart with value and upgrade your install
+```sh
+helm upgrade --install whale-of-a-time .
+```
 2. Access the Application:
 Forward a local port to the service to access the application:
 Expose the services via node port

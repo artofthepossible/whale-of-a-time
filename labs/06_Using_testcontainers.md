@@ -15,7 +15,7 @@ In an infrastructure as code manner, They get to spin up unit and integration te
 using their domain specific language and execute these in parallel</br>
 
 
-Time to Complete: 20-30 minutes
+Time to Complete: 15-20 minutes
 
 ### How to Use This Hands-On Lab
 
@@ -208,7 +208,7 @@ Open your web browser and navigate to:
    ```sh
     http://localhost:8080/
    ```
-You should see the text "Hello World!".
+You should see the text "Welcome to My Spring Boot Application".
 
 4. Running Tests, open a separate terminal and invoke the following command
 The application includes unit tests that use the Testcontainers library to validate the appearance of the text "Welcome to My Spring Boot Application" when the application starts.
@@ -218,3 +218,19 @@ To run the tests, use the following command:
     mvn test
    ```
 
+Tests are executed locally wihtout any failures
+
+   ```sh
+    [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.278 s -- in com.example.whale_of_a_time.WhaleOfATimeApplicationTests
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.696 s
+[INFO] Finished at: 2025-01-08T17:57:04-05:00
+[INFO] ------------------------------------------------------------------------
+   ```

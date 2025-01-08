@@ -6,7 +6,7 @@ Define Secure Software Supply Chain (SSSC)
 Review SBOMs and how to use them
 Detect and monitor vulnerabilities
 
-Time to Complete: 30-45 minutes
+Time to Complete: 15-20 minutes
 
 ### How to Use This Hands-On Lab
 1. To get started with Docker Build Scout, you need to:
