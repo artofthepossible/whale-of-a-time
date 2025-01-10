@@ -55,38 +55,45 @@ It provides a user-friendly graphical interface for managing containers, applica
 
 When you open Docker Desktop, you'll see the Docker Desktop Dashboard, which offers several key views:</br>
 
+**Containers view**
 ```sh
-**Containers view**: This provides a runtime view of all your containers and applications. </br>
+This provides a runtime view of all your containers and applications. </br>
 You can interact with containers, manage their lifecycle, and perform common actions. </br>
 ```
 
+**Images view**: 
 ```sh
-**Images view**: Here you can see a list of your Docker images, run images as containers, pull the latest versions from Docker Hub, and inspect images. </br>
+Here you can see a list of your Docker images, run images as containers, pull the latest versions from Docker Hub, and inspect images. </br>
 It also shows image vulnerabilities and clean-up options. </br>
+
+```
+**Volumes view**: 
+```sh
+This displays a list of volumes and allows you to create, delete, and see which ones are being used. </br>
 ```
 
+**Builds view**: 
 ```sh
-**Volumes view**: This displays a list of volumes and allows you to create, delete, and see which ones are being used. </br>
-```
-
-```sh
-**Builds view**: You can inspect your build history and manage builders here. </br>
+You can inspect your build history and manage builders here. </br>
 ```
 
 The Dashboard also provides access to:</br>
 
+**Settings menu** 
 ```sh
-**Settings menu** for configuring Docker Desktop</br>
+For configuring Docker Desktop</br>
 Troubleshoot menu for debugging and performing restart operations</br>
 ```
 
+**Notifications center** 
 ```sh
-**Notifications center** for updates and other information</br>
+For updates and other information</br>
 **Learning center** with quick in-app walkthroughs and resources</br>
 ```
 
+**Quick Search**
 ```sh
-**Quick Search** is A key feature of Docker Desktop that is located in the Dashboard header. </br>
+A key feature of Docker Desktop that is located in the Dashboard header. </br>
 This allows you to search for containers, images, extensions, volumes, and even Docker documentation. </br>
 ```
 
