@@ -15,17 +15,23 @@ Enable kubernetes single or multi-node cluster when starting Docker Desktop.
 
 1. Open Docker Desktop:
    - Launch Docker Desktop from your applications menu.
+   ```sh
+   $ docker desktop start
+   ```
 
 2. Enable Kubernetes:
+   ```sh
    - Click on the gear icon (⚙️) in the top-right corner to open the settings.
    - In the settings menu, navigate to the "Kubernetes" tab.
    - Check the box labeled "Enable Kubernetes".
    - Click "Apply & Restart" to apply the changes and restart Docker Desktop.
+   ```
 
 3. Wait for Kubernetes to Start:
+   ```sh
    - Docker Desktop will take a few minutes to start Kubernetes. You can monitor the progress in the Docker Desktop status bar.
    - Once Kubernetes is running, you will see a green light next to "Kubernetes" in the Docker Desktop settings.
-
+   ```
 4. Verify Kubernetes is Running:
    - Open a terminal and run the following command to check the status of Kubernetes:
      ```sh
