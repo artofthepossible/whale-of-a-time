@@ -44,7 +44,7 @@ In your terminal you can use the following commands to bring up Docker Desktop</
 ```sh
 $ v View in Docker Desktop
 ```
-Access the Application:</br>
+**Access the Application**</br>
 Your application will be available at http://localhost:8080
 
 ### Part 3: Discover Docker Desktop
@@ -57,44 +57,44 @@ When you open Docker Desktop, you'll see the Docker Desktop Dashboard, which off
 
 **Containers view**
 ```sh
-This provides a runtime view of all your containers and applications. </br>
-You can interact with containers, manage their lifecycle, and perform common actions. </br>
+This provides a runtime view of all your containers and applications.
+You can interact with containers, manage their lifecycle, and perform common actions.
 ```
 
 **Images view**: 
 ```sh
-Here you can see a list of your Docker images, run images as containers, pull the latest versions from Docker Hub, and inspect images. </br>
-It also shows image vulnerabilities and clean-up options. </br>
+Here you can see a list of your Docker images, run images as containers, pull the latest versions from Docker Hub, and inspect images.
+It also shows image vulnerabilities and clean-up options.
 
 ```
 **Volumes view**: 
 ```sh
-This displays a list of volumes and allows you to create, delete, and see which ones are being used. </br>
+This displays a list of volumes and allows you to create, delete, and see which ones are being used.
 ```
 
 **Builds view**: 
 ```sh
-You can inspect your build history and manage builders here. </br>
+You can inspect your build history and manage builders here.
 ```
 
 The Dashboard also provides access to:</br>
 
 **Settings menu** 
 ```sh
-For configuring Docker Desktop</br>
-Troubleshoot menu for debugging and performing restart operations</br>
+For configuring Docker Desktop
+Troubleshoot menu for debugging and performing restart operations
 ```
 
 **Notifications center** 
 ```sh
-For updates and other information</br>
-**Learning center** with quick in-app walkthroughs and resources</br>
+For updates and other information
+**Learning center** with quick in-app walkthroughs and resources
 ```
 
 **Quick Search**
 ```sh
-A key feature of Docker Desktop that is located in the Dashboard header. </br>
-This allows you to search for containers, images, extensions, volumes, and even Docker documentation. </br>
+A key feature of Docker Desktop that is located in the Dashboard header.
+This allows you to search for containers, images, extensions, volumes, and even Docker documentation.
 ```
 
 ### Part 4: Stop your application 
