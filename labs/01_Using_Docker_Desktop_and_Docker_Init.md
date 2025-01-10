@@ -101,12 +101,18 @@ $ docker desktop restart
 ✓ Starting Docker Desktop
 
 $ docker desktop status
+✓ Check status
+
 ```
 
 **Notifications center** 
 ```sh
 For updates and other information
-**Learning center** with quick in-app walkthroughs and resources
+```
+
+**Learning center** 
+```sh
+Quick in-app walkthroughs and resources
 ```
 
 **Quick Search**
