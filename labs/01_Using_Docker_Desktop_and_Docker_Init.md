@@ -82,7 +82,25 @@ The Dashboard also provides access to:</br>
 **Settings menu** 
 ```sh
 For configuring Docker Desktop
-Troubleshoot menu for debugging and performing restart operations
+```
+
+**Troubleshoot menu**
+```sh
+For debugging and performing restart operations
+```
+
+**Pro Tips Commands**
+```sh
+$ docker desktop start
+✓ Starting Docker Desktop
+
+$ docker desktop stop
+✓ Stopping Docker Desktop
+
+$ docker desktop restart
+✓ Starting Docker Desktop
+
+$ docker desktop status
 ```
 
 **Notifications center** 

@@ -34,15 +34,15 @@ Enable kubernetes single or multi-node cluster when starting Docker Desktop.
    ```
 4. Verify Kubernetes is Running:
    - Open a terminal and run the following command to check the status of Kubernetes:
-     ```sh
+   ```sh
      kubectl get nodes
-     ```
+   ```
    - You should see a list of nodes indicating that Kubernetes is up and running.
 
 5. Setup the context for docker-desktop
-     ```sh
+   ```sh
       kubectl config use-context docker-desktop
-     ```
+   ```
 
 6. Deploy an Application to Kubernetes:
    - You can now deploy your applications to the local Kubernetes cluster using `kubectl` commands or Kubernetes manifests.
