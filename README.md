@@ -10,7 +10,7 @@ What’s Included
 
 | Module                                             | Description                                       | Link                                                                                        |
 |----------------------------------------------------|---------------------------------------------------|---------------------------------------------------------------------------------------------|
-| Using Docker Desktop and Docker Init                            | Learn how to containerize an application              | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/01_Using_docker_init.md) |
+| Using Docker Desktop and Docker Init                            | Learn how to containerize an application              | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/01_Using_Docker_Desktop_and_Docker_Init.md) |
 | Using Docker Tag                                       | Learn how to Tag and Push your images                          | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/02_Using_docker_tag_and_push.md)  |
 | Using Docker Build Cloud                                 | Learn how to Build your image with Docker Build Cloud | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/03_Using_docker_build_cloud.md)  |
 | Deploy your Application| Learn how to use the local kubernetes cluster | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/04_Using_kubernetes_on_docker_desktop.md)  |
