@@ -1,4 +1,4 @@
-### Introduction to Docker Build Cloud Lab
+### Using Docker Build Cloud Lab
 
 Overview
 In this lab, you'll learn the fundamentals of docker build cloud.

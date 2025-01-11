@@ -1,4 +1,4 @@
-### Introduction to Deploying your Application Lab
+### Using Kubernetes on Docker Desktop to Deploy your Application Lab
 
 Overview
 In this lab, you'll learn the fundamentals of kubernetes on docker desktop.

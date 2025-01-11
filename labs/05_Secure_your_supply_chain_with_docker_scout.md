@@ -1,4 +1,4 @@
-### Introduction to Docker Scout Lab
+### Using Docker Scout Lab
 
 Overview
 In this lab, you'll learn the fundamentals of docker scout.

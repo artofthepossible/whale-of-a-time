@@ -1,4 +1,4 @@
-### Introduction to Testcontainers
+### Using Testcontainers
 
 Overview
 In this lab, you'll learn the fundamentals of testcontainers and how to setup testcontainers cloud</br>

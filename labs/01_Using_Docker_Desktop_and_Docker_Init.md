@@ -1,4 +1,4 @@
-### Introduction to Docker Init Command Lab
+### Using Docker Desktop and the Docker Init Command Lab
 
 Overview
 In this lab, you'll learn the fundamentals docker init CLI commands to kickstart your containerization process, understand the inputs and outputs.

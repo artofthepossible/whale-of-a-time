@@ -1,4 +1,4 @@
-### Introduction to Docker tag Command Lab
+### Using Docker tag and push Commands Lab
 
 Overview
 In this lab, you'll learn the following
