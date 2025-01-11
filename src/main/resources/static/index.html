@@ -11,6 +11,8 @@
             padding: 50px;
             margin: 0;
             overflow: hidden;
+            background: url('hwmd.png') no-repeat center center fixed;
+            background-size: cover;
         }
         h1 {
             color: #fff;
@@ -67,43 +69,5 @@
             <a href="https://github.com/artofthepossible/whale-of-a-time/actions" target="_blank">Use GitHub Actions</a>
         </div>
     </div>
-
-    <script>
-        // Load the IFrame Player API code asynchronously.
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-        // Replace the 'video-background' div with an <iframe> and YouTube player after the API code downloads.
-        var player;
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('video-background', {
-                videoId: 'lI8xjrp0s6U', // YouTube video ID
-                playerVars: {
-                    autoplay: 1,
-                    loop: 1,
-                    playlist: 'lI8xjrp0s6U',
-                    controls: 0,
-                    showinfo: 0,
-                    modestbranding: 1,
-                    mute: 1,
-                    fs: 0,
-                    cc_load_policy: 0,
-                    iv_load_policy: 3,
-                    autohide: 1
-                },
-                events: {
-                    onReady: function (e) {
-                        e.target.mute();
-                        setTimeout(function() {
-                            e.target.stopVideo();
-                        }, 49000); // Stop the video after 50 seconds
-                    }
-                }
-            });
-        }
-    </script>
-    
 </body>
 </html>
