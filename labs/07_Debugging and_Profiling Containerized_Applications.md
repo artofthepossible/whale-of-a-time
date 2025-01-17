@@ -88,6 +88,39 @@ This can help you understand the container's setup, including environment variab
 # Review Application’s Disk Usage with Disk Usage Extension
 1. View Disk Usage:
     Open the Disk Usage extension from Docker Desktop to analyze the disk space used by containers, volumes, and images.
-    ![Disk Usage](./labs/images/diskUsage.png)
+    ![Disk Usage](~/labs/images/diskUsage.png)
 
     This extension provides a breakdown of where storage is consumed, helping you identify and manage excessive disk usage.
+
+# Review Application’s Resource Usage with Resource Usage Extension
+1. Navigate to the  Resource Usage extension is available under Extensions in Docker Desktop.
+
+
+With the Resource Usage extension, you can get a clearer view of your </br>usage and the ability to analyze the data for better insights.</br>
+
+The Resource Usage extension shows which containers consume the most </br>resources on their development machines by running the Docker stats </br>command, then compiling the data into a user interface.</br>
+
+With the Resource Usage extension, you can quickly:</br>
+
+Analyze the most resource-intensive containers or Docker Compose projects.</br>
+Observe how resource usage changes over time for containers.</br>
+View how much CPU, memory, network, and disk space your containers use.</br>
+    ![Resource Usage](labs/images/resourceUsage.png)
+
+The cards at the top top of the extension give you a quick global overview of the resources in use: </br>
+
+CPU cores usage
+Memory usage 
+No. of running containers
+
+The Table view shows the details for your containers. </br>
+You can customize the view by selecting which columns you want to display and which values you want to filter. </br>
+Here are the available columns:</br>
+
+NAME – The container name
+STATUS – The container status (running or not running)
+CPU (%) – The percentage of the host’s CPU and memory used by the container
+MEM (%) – The amount of memory used out of the total limit it’s allowed to use
+DISK READ/WRITE -The amount of data the container has read to and written from block devices on the host
+NETWORK I/O – The amount of data the container has sent and received over its network interface
+PIDs – the number of processes or threads the container has created
