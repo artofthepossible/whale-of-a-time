@@ -117,7 +117,7 @@ $ docker desktop status
 ```sh
 For updates and other information
 ```
-![Notifications Center ](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/notifications-center.png)
+
 
 **Learning center** 
 ```sh
@@ -129,7 +129,7 @@ Quick in-app walkthroughs and resources
 A key feature of Docker Desktop that is located in the Dashboard header.
 This allows you to search for containers, images, extensions, volumes, and even Docker documentation.
 ```
-![Quick Search ](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/quick-search.png)
+
 
 ### Part 4: Stop your application 
 
