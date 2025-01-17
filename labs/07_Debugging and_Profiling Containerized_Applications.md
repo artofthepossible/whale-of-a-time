@@ -58,7 +58,7 @@ This command will show standard output and error logs. You can use additional fl
          -f to follow the logs in real-time.
          --tail to limit the number of log lines shown.
          --since and --until to filter logs by timestamp.
-![Logs Explorer](./labs/images/logsExplorer.png)
+![Logs Explorer](labs.images/logsExplorer.png)
 
 ### Using Docker Debug to Profile Application
 # Start Debugging a Container:
@@ -88,7 +88,7 @@ This can help you understand the container's setup, including environment variab
 # Review Application’s Disk Usage with Disk Usage Extension
 1. View Disk Usage:
     Open the Disk Usage extension from Docker Desktop to analyze the disk space used by containers, volumes, and images.
-    ![Disk Usage](~/labs/images/diskUsage.png)
+    ![Disk Usage](labs.images/diskUsage.png)
 
     This extension provides a breakdown of where storage is consumed, helping you identify and manage excessive disk usage.
 
@@ -105,7 +105,7 @@ With the Resource Usage extension, you can quickly:</br>
 Analyze the most resource-intensive containers or Docker Compose projects.</br>
 Observe how resource usage changes over time for containers.</br>
 View how much CPU, memory, network, and disk space your containers use.</br>
-    ![Resource Usage](labs/images/resourceUsage.png)
+![Resource Usage](labs.images/resourceUsage.png)
 
 The cards at the top top of the extension give you a quick global overview of the resources in use: </br>
 
