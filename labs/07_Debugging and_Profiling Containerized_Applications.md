@@ -109,9 +109,9 @@ View how much CPU, memory, network, and disk space your containers use.</br>
 
 The cards at the top top of the extension give you a quick global overview of the resources in use: </br>
 
-CPU cores usage
-Memory usage 
-No. of running containers
+CPU cores usage</br>
+Memory usage </br>
+No. of running containers</br>
 
 The Table view shows the details for your containers. </br>
 You can customize the view by selecting which columns you want to display and which values you want to filter. </br>
