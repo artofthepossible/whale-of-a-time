@@ -182,7 +182,18 @@ d. For example, To Fix - Missing supply chain attestation(s), Rebuild the image 
     https://scout.docker.com/reports/org/demonstrationorg/images/host/hub.docker.com/repo/demonstrationorg%2Fwhale-of-a-time-scout-demo/tag/v4/digest/sha256%3A1ac649615092d9e30ff4d6c10ad84733d5212451e406b9a331143c1208f18ff4/policy
     ```
 
-### Part 7:  View in Dashboard
+### Part 7:  Evaluate Scout against policy in CLI
+Docker Scout Policy Evaluation provides a comprehensive overview of how policy evaluation works in Docker Scout, including details on policy types and how they help maintain the security and reliability of your artifacts.
+
+The docker scout policy command is used to evaluate policies against an image and display the policy evaluation results.
+ ```sh
+    docker scout policy [IMAGE | REPO]
+
+    Evaluate policies for a specific image: 
+    docker scout policy dockerscoutpolicy/customers-api-service:0.0.1
+    
+    Evaluate policies for a specific organization: docker scout policy dockerscoutpolicy/customers-api-service:0.0.1 --org dockerscoutpolicy
+```
 
 ### Additional Labs:  Docker Scout's GitHub integration
 For additional labs, you can enable Docker Scout's GitHub integration, which helps keep your base images up-to-date automatically.</br>
