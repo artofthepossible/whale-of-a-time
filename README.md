@@ -12,10 +12,11 @@ What’s Included
 |----------------------------------------------------|---------------------------------------------------|---------------------------------------------------------------------------------------------|
 | Using Docker Desktop and Docker Init to build you Image                           | Learn how to containerize an application              | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/01_Using_Docker_Desktop_and_Docker_Init.md) |
 | Using Docker Tagging and Pushing                                       | Learn how to Tag and Push your images                          | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/02_Using_docker_tag_and_push.md)  |
-| Using Docker Build Cloud and Base Image Selection                                 | Learn how to Build your image with Docker Build Cloud | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/03_Using_docker_build_cloud.md)  |
+| Using Docker Build Cloud and Base Image Selection                                 | Learn how to Build your image with Docker Build Cloud | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/03_Using_docker_build_cloud_and_Base_Image_Selection.md)  |
 | Using Kubernetes on Docker Desktop | Learn how to use the local kubernetes cluster | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/04_Using_kubernetes_on_docker_desktop.md)  |
 | Secure your Software Supply Chain with Docker Scout| Learn how to Build your image with Docker Scout | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/05_Secure_your_supply_chain_with_docker_scout.md)  |
 | Using Testcontainers for Testing and Validation| Learn how to setup and use Testcontainers and Testcontainers Cloud | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/06_Using_testcontainers.md)  |
+| Debugging and Profiling Containerized Applications| Learn how to debug containerized applications, analyze logs, and profile CPU and memory characteristics | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/07_Debugging%20and_Profiling%20Containerized_Applications.md)  |
 
 ### Feedback
 Feedback and contributions are always welcome!
