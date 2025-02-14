@@ -42,7 +42,7 @@ whale-of-a-time-server                                                 latest   
 
 4. Push the image to Docker Hub.
 ```sh
-$ docker push ORG_NAME/IMAGE_NAME:vtagname
+docker push ORG_NAME/IMAGE_NAME:vtagname
 ```
 Example:docker push demonstrationorg/whale-of-a-time:v1.0
 Replace ORG with the Docker Hub namespace of your Docker organization.

@@ -71,13 +71,13 @@ Getting started with docker scout is significantly easier
 Its optimized scout for first time users who may not be security experts and lights up immediately as you point your images
 1. Build and push our image scout-demo-service using local cli
 
-Build the image and push it to a <ORG_NAME>/scout-demo:v1, where <ORG_NAME> is the Docker Hub namespace you push to.
+Build the image and push it to a <ORG_NAME>/scout-demo:v1, where <ORG_NAME> is the Docker Hub namespace you push to:
     ```sh 
-    docker build --push -t ORG_NAME/whale-of-a-time-scout-demo:v1 .
+    docker build --push -t ORG_NAME/whale-of-a-time-scout-demo:v1 . 
     ```
-3. To view the same output via the cli
-To view the summary of image vulnerabilities and recommendations, we run the first command listed here
 
+3. To view the same output via the cli
+To view the summary of image vulnerabilities and recommendations, we run the first command listed here:
     ```sh 
     docker scout quickview 
     ```
