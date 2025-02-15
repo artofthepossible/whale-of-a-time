@@ -59,13 +59,13 @@ $ v View in Docker Desktop
 **Access the Application**</br>
 Your application will be available at http://localhost:8080
 
-### Part 4: Stop your application 
+### Part 3: Stop your application 
 
 ```sh
 docker compose down
 ```
 
-### Part 5: Mounting a Volume in a Docker Container
+### Part 4: Mounting a Volume in a Docker Container
 Objective: Learn how to mount a volume in a Docker container to persist data and share files between the host and the container.</br>
 
 To enhance your existing Spring Boot application to allow an end user to mount a volume for logs, you can follow these steps:</br>
@@ -133,7 +133,7 @@ services:
 ```
 
 
-### Part 6: Optimizing Java Application
+### Part 5: Optimizing Java Application
 This section will guide you through the process of optimizing your Java application running in a Docker container by modifying Java arguments and entrypoints.</br>
 By adjusting environment variables and JVM options, you can enhance the performance and behavior of your application.</br>
 
@@ -288,7 +288,7 @@ This command will continuously send requests to the application every second.</b
 while true; do curl http://localhost:8080/; sleep 1; done
 ```
 
-**Stop your Spplication**</br>
+**Stop your Application**</br>
 ```sh
 docker compose down
 ```

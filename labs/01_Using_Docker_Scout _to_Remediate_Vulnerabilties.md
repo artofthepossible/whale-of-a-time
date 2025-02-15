@@ -84,7 +84,7 @@ To view the summary of image vulnerabilities and recommendations, we run the fir
     docker scout recommendations demonstrationorg/whale-of-a-time-server:v1.0
     ```
 
-### Part 2: Health Scores - Docker Desktop:
+### Part 3: Health Scores - Docker Desktop:
 
 1. To view the health score of an image in Docker Desktop:
 
@@ -99,13 +99,15 @@ To view the summary of image vulnerabilities and recommendations, we run the fir
     Orange: A score of D.</br>
     Red: A score of E or F.</br>
     Gray: An N/A score.</br>
+![HealthScores on Docker Desktop](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/healthscores_dd.png)
 
-### Part 5: Health Scores - Docker Hub:
+### Part 4: Health Scores - Docker Hub:
 1. To view the health score of an image in Docker Hub: </br>
 
 2. Go to Docker Hub and sign in. </br>
 3. Navigate to your organization's page. </br>
 4. In the list of repositories, you can see the health score of each repository based on the latest pushed tag. </br>
+![HealthScores on Docker Hub](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/healthscores_dh.png)
 
 
 ### Part 6: Health Scores - Improving your health score
@@ -120,3 +122,4 @@ Since policies are weighted differently, prioritize the policies with the highes
 a. In Docker Desktop, select View in Hub
 b. In Docker Hub, select [view in Docker Scout Dashboard](https://scout.docker.com/reports/org/demonstrationorg/images/host/hub.docker.com/repo/demonstrationorg%2Fwhale-of-a-time-scout-demo/tag/v3/digest/sha256%3A1ac649615092d9e30ff4d6c10ad84733d5212451e406b9a331143c1208f18ff4?utm_source=hub&utm_medium=actions-button&_gl=1*1kj2f6f*_gcl_aw*R0NMLjE3MzA3NjQyMDkuQ2owS0NRaUFfcUc1QmhEVEFSSXNBQTBVSFNLZ2NEcUJJenQ3a1JfaktfSmoyR1JBaC1heHd4QlJaQmpaMEc3TUlmand6STNPUktqVDhUUWFBbVdjRUFMd193Y0I.*_gcl_au*MTQxNjYwMDAzNC4xNzMzNzczMTAy*_ga*ODQyNDk2NzMyLjE3MDI0MDA3MjY.*_ga_XJWPQMJYHQ*MTczNjE4NjcxNy4xNTg1LjEuMTczNjE4OTQ5OC42MC4wLjA.)
 c. Under [Policy Status](https://scout.docker.com/reports/org/demonstrationorg/images/host/hub.docker.com/repo/demonstrationorg%2Fwhale-of-a-time-scout-demo/tag/v3/digest/sha256%3A1ac649615092d9e30ff4d6c10ad84733d5212451e406b9a331143c1208f18ff4/policy)
+![HealthScores on Docker Scout](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/healthscores_ds.png)

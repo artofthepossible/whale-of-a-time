@@ -27,8 +27,8 @@ docker tag whale-of-a-time-server:latest ORG_NAME/IMAGE_NAME:v1.0
 
 Example $ docker tag whale-of-a-time-server:latest demonstrationorg/whale-of-a-time:v1.0
 ```
-Example:docker tag whale-of-a-time-server:latest demonstrationorg/whale-of-a-time:v1.0
-Replace ORG with the Docker Hub namespace of your Docker organization.
+Example:docker tag whale-of-a-time-server:latest demonstrationorg/whale-of-a-time:v1.0</br>
+Replace ORG with the Docker Hub namespace of your Docker organization.</br>
 
 3. Confirm you have a new image tag by running the command below
 ```sh
@@ -44,10 +44,10 @@ whale-of-a-time-server                                                 latest   
 ```sh
 docker push ORG_NAME/IMAGE_NAME:vtagname
 ```
-Example:docker push demonstrationorg/whale-of-a-time:v1.0
-Replace ORG with the Docker Hub namespace of your Docker organization.
+Example:docker push demonstrationorg/whale-of-a-time:v1.0</br>
+Replace ORG with the Docker Hub namespace of your Docker organization.</br>
 
-**Extra**
+**Extra**</br>
 To tag and push a Docker image in one command, you can use the docker tag and docker push commands in a single line using the && operator. </br>
 
 Here is the command:</br>
