@@ -16,14 +16,14 @@ Time to Complete: 5-10 minutes
 
 1. Find the existing image that we built in previous la by running the command 
 ```sh
-$ docker image ls
+docker image ls
 ```
 
 2. Tag the existing image [whale-of-a-time-server] with a semantic version.
 docker tag existing-image:tagname new-image:tagname
 
 ```sh
-$ docker tag whale-of-a-time-server:latest ORG_NAME/IMAGE_NAME:v1.0
+docker tag whale-of-a-time-server:latest ORG_NAME/IMAGE_NAME:v1.0
 
 Example $ docker tag whale-of-a-time-server:latest demonstrationorg/whale-of-a-time:v1.0
 ```
@@ -32,7 +32,7 @@ Replace ORG with the Docker Hub namespace of your Docker organization.
 
 3. Confirm you have a new image tag by running the command below
 ```sh
-$ docker image ls
+docker image ls
 ```
  
 Expected Outputs
@@ -47,6 +47,14 @@ docker push ORG_NAME/IMAGE_NAME:vtagname
 Example:docker push demonstrationorg/whale-of-a-time:v1.0
 Replace ORG with the Docker Hub namespace of your Docker organization.
 
+**Extra**
+To tag and push a Docker image in one command, you can use the docker tag and docker push commands in a single line using the && operator. </br>
+
+Here is the command:</br>
+```sh
+docker tag whale-of-a-time-server:latest ORG_NAME/IMAGE_NAME:v1.0 && docker push ORG_NAME/IMAGE_NAME:v1.0
+```
+Replace ORG_NAME with your Docker Hub organization name and IMAGE_NAME with the desired image name.</br>
 
 ### Resources:
 
