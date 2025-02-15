@@ -1,5 +1,7 @@
-### Part 1: Discover Docker Desktop
-Here's a guided tour of Docker Desktop based on the provided knowledge sources:</br>
+### Discover Docker Desktop and New Commands Lab
+
+Overview
+In this lab, you'll get a guided tour of Docker Desktop and New Commands</br>
 
 Docker Desktop is an all-in-one application for Mac, Linux, or Windows that allows you to build, share, and run containerized applications and microservices. </br>
 It provides a user-friendly graphical interface for managing containers, applications, and images directly from your machine.</br>
@@ -80,6 +82,13 @@ Quick in-app walkthroughs and resources
 A key feature of Docker Desktop that is located in the Dashboard header.
 This allows you to search for containers, images, extensions, volumes, and even Docker documentation.
 ```
+
+### Docker scout and Docker Build Cloud Commands
+
+docker scout quickview ✓ CVE overview and recommendations
+docker scout cves ✓ Analyze image for security vulnerabilities
+docker scout policy ✓ Evaluate image policies for compliance
+docker buildx build --builder dbc-builder image:tag
 
 
 ### Resources

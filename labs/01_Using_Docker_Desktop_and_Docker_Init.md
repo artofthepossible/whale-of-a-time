@@ -4,8 +4,9 @@ Overview
 In this lab, you'll learn 
 The fundamentals docker init CLI commands to kickstart your containerization process, understand the inputs and outputs.
 Learn how to mount a volume in a Docker container to persist data and share files between the host and the container.
+Guide you through the process of optimizing your Java application running in a Docker container by modifying Java arguments and entrypoints.
 
-Time to Complete: 5-10 minutes
+Time to Complete: 5-30 minutes
 
 ### How to Use This Hands-On Lab
 1. You have installed the latest version of Docker Desktop.
