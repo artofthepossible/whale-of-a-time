@@ -2,14 +2,12 @@
 
 Overview
 In this lab, you'll learn the fundamentals of docker scout.
-Define Secure Software Supply Chain (SSSC)
-Review SBOMs and how to use them
-Detect and monitor vulnerabilities
+Detect and Remediate vulnerabilities earlier in development to Improve you Secure Software Supply Chain 
 
 Time to Complete: 15-20 minutes
 
 ### How to Use This Hands-On Lab
-1. To get started with Docker Build Scout, you need to:
+1. To get started with Docker Scout, you need to:
 a. Activate Docker Scout on at least one repository
 
 ### Overview
