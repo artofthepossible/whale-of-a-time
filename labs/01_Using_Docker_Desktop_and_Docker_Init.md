@@ -274,7 +274,7 @@ http://localhost:8080
 Running containers as the root user can pose security risks. Ensure that your Dockerfile creates and uses a non-privileged user to run the application.</br>
 
 **No Secrets/Credentials/Keys in Dockerfile**</br>
-Avoid hardcoding secrets, credentials, or keys in your Dockerfile. Use environment variables or Docker secrets to manage sensitive information securely.</br>
+Avoid hardcoding secrets, credentials, or keys in your Dockerfile. Use environment variables or Secrets Managers to manage sensitive information securely.</br>
 
 **Use Docker Scout to Assess Image for Vulnerabilities**</br>
 Docker Scout helps you identify and fix vulnerabilities in your Docker images. Use the following command to scan your image for vulnerabilities:</br>
