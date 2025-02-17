@@ -180,6 +180,35 @@ helm list
 kubectl logs <pod-name>
 ```
 
+3. If the image is stored in a private registry, Kubernetes needs credentials to pull it.</br>
+
+Create a Kubernetes secret:</br>
+```sh
+kubectl create secret docker-registry my-registry-secret \
+  --docker-username=dockerid \
+  --docker-password=dckr_pat_yourpersonalaccesstoken \
+  --docker-email=youremail@domain.com
+
+secret/my-registry-secret created
+```
+Reference the secret in your values.yaml:</br>
+```sh
+imagePullSecrets:
+  - name: regcred
+```
+
+4. If you suspect, the image name or tag might be incorrect in your values.yaml </br>
+
+Verify the image name and tag:</br>
+
+```sh
+image:
+  repository: ORG/IMAGENAME
+  tag: "v1.0"
+  pullPolicy: Always
+```
+PullPolicy is set to IfNotPresent to avoid unnecessary pulls:
+
 
 By following these steps, you should have used helm to deploy an application to a local kind cluster and be able to curl the endpoint.
 
