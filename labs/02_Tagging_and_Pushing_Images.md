@@ -2,7 +2,7 @@
 
 Overview
 In this lab, you'll learn the following
-How to Build, tag, and publish a simple Docker image following best practices.
+How to Build, tag, and publish a Docker image following best practices.
 Why Proper tagging is crucial for version control and deployment.
 Adhering to best practices enhances collaboration and reduces errors.
 
@@ -34,11 +34,13 @@ Replace ORG with the Docker Hub namespace of your Docker organization.</br>
 ```sh
 docker image ls
 ```
- 
+
+```sh
 Expected Outputs
 REPOSITORY                                                             TAG                                                                           IMAGE ID       CREATED             SIZE
 demonstrationorg/whale-of-a-time                                       v1.0                                                                          72ea28c44fca   About an hour ago   433MB
 whale-of-a-time-server                                                 latest                                                                        72ea28c44fca   About an hour ago   433MB
+```
 
 4. Push the image to Docker Hub.
 ```sh

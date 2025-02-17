@@ -37,6 +37,10 @@ Implement security policies that govern how software is built, and the component
 2. Setup docker desktop settings
     Enable image SBOM indexing.
     Enable background SBOM indexing
+    Enable containerd for pulling and storing images then apply and restart 
+     The containerd image store extends the range of image types that Docker Engine can natively interact with. This unlocks various new use cases, including:
+        Building multi-platform images and images with attestations
+        The ability to build and run Wasm containers
 
 ### Part 2: Scout: Docker Desktop and CLI - Issue identification and Analysis
 
@@ -86,7 +90,7 @@ To view the summary of image vulnerabilities and recommendations, we run the fir
 
 1. To view the health score of an image in Docker Desktop:
 
-    a. Open Docker Desktop and sign in to your Docker account. </br>
+    a. Open Docker Desktop and sign in to your Docker Enterprise account. </br>
     b. Navigate to the Images view and select the Hub tab.</br>
     c. In the list of repositories, the Health column displays the scores of the different tags that have been pushed to Docker Hub.</br>
 
@@ -102,7 +106,7 @@ To view the summary of image vulnerabilities and recommendations, we run the fir
 ### Part 4: Health Scores - Docker Hub:
 1. To view the health score of an image in Docker Hub: </br>
 
-2. Go to Docker Hub and sign in. </br>
+2. Go to Docker Hub and sign in with your Docker Enterprise account. </br>
 3. Navigate to your organization's page. </br>
 4. In the list of repositories, you can see the health score of each repository based on the latest pushed tag. </br>
 ![HealthScores on Docker Hub](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/healthscores_dh.png)
@@ -112,7 +116,7 @@ To view the summary of image vulnerabilities and recommendations, we run the fir
 To improve the health score of an image, take steps to ensure that the image is compliant with the Docker Scout recommended policies. </br>
 
 1. Go to the Docker Scout Dashboard. </br>
-2. Sign in using your Docker ID. </br>
+2. Sign in using your Docker ID Enterprise account. </br>
 3. Go to Repository settings and enable Docker Scout for your Docker Hub image repositories. </br>
 4. Analyze the policy compliance for your repositories, and take actions to ensure your images are policy-compliant. </br>
 Since policies are weighted differently, prioritize the policies with the highest scores for a greater impact on your image's overall score. </br>

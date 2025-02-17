@@ -14,7 +14,7 @@ Time to Complete: 5-30 minutes
 3. You have an IDE or a text editor to edit files. Docker recommends using Visual Studio Code.
 4. Clone the getting-started-app repository using the following command:
 ```sh
-$ git clone https://github.com/artofthepossible/whale-of-a-time
+git clone https://github.com/artofthepossible/whale-of-a-time
 ```
 
 
@@ -28,7 +28,7 @@ Has support for ASP.NET, Java, Go, Node, Python, and Rust
 ### Part 1: Docker Init
 
 ```sh
-$ docker init
+docker init
 ```
 Follow prompts
 
@@ -47,6 +47,7 @@ Depending on your application, make updates to the multistage dockerfile shared 
 Dockerfile (a list of commands used to assemble an image.), </br>
 compose.yaml ( a file to define multiple container applications)</br>
 and  README file </br>
+ProTip: Align the assets to your application needs
 
 ### Part 2: Start your application
 
@@ -68,6 +69,7 @@ docker compose down
 
 ### Part 4: Mounting a Volume in a Docker Container
 Objective: Learn how to mount a volume in a Docker container to persist data and share files between the host and the container.</br>
+Before this exercise, be sure to press Ctrl+C and stop the running container
 
 To enhance your existing Spring Boot application to allow an end user to mount a volume for logs, you can follow these steps:</br>
 
@@ -76,10 +78,11 @@ This setup ensures that logs written to /tmp/logs inside the container are persi
 Dockerfile: Add VOLUME /tmp/logs to define the volume.</br>
 Docker Compose: Map the volume in docker-compose.yml to link the host directory to the container directory.</br>
 
-
+```sh
 Modify the Application Properties</br>
-
-Update your application.properties file to specify the log file location. </br>This will allow you to direct logs to a specific directory that can be mounted as a volume.</br>
+Update your application.properties file to specify the log file location. </br>
+```
+This will allow you to direct logs to a specific directory that can be mounted as a volume.</br>
 
 ```sh
 # filepath: /whale-of-a-time/src/main/resources/application.properties
@@ -132,7 +135,20 @@ services:
     volumes:
       - ./logs:/tmp/logs
 ```
+**View Bind Mounts**</br>
+You can view the bindmounts for /tmp/logs 
+![Bind Mounts View](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/bind-mount-view.png)
 
+**Container File Update**</br>
+You can view logs written to /tmp/logs directly in docker desktop inside the container are persisted on the host machine in the ./logs directory
+![Container Files View](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/mount-file-view.png)
+
+In a separate terminal, Navigate to the ~/whale-of-a-time/logs to view the logs generated
+```sh
+cd ~/whale-of-a-time/logs 
+cat ~/Apps/whale-of-a-time/logs/spring.log
+```
+![Container Files Viewer](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/mount-file-view.png)
 
 ### Part 5: Optimizing Java Application
 This section will guide you through the process of optimizing your Java application running in a Docker container by modifying Java arguments and entrypoints.</br>
@@ -150,8 +166,17 @@ Optimizing Java arguments and entrypoints can provide several benefits:
 **Stability**: Fine-tuning JVM options can lead to a more stable application by avoiding common pitfalls such as long garbage collection pauses.</br>
 
 Follow these steps to optimize your Java application:</br>
+```sh
+Set Environment Variables for Java Options: </br>
 
-Set Environment Variables for Java Options: Add the ENV JAVA_OPTS line to your Dockerfile to set useful Java options such as initial and maximum heap size, garbage collector, and entropy source.</br>
+Add the ENV JAVA_OPTS line to your Dockerfile to set useful Java options such as initial and maximum heap size, garbage collector, and entropy source.</br>
+
+# Set environment variables for Java options
+ENV JAVA_OPTS="-Xms512m -Xmx1024m -XX:+UseG1GC -Djava.security.egd=file:/dev/./urandom"
+
+# Define the entrypoint with Java options
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS org.springframework.boot.loader.launch.JarLauncher" ]
+```
 
 Define the Entrypoint: Modify the ENTRYPOINT to include the JAVA_OPTS environment variable, allowing you to pass JVM arguments when starting the application.</br>
 
@@ -289,7 +314,35 @@ This command will continuously send requests to the application every second.</b
 while true; do curl http://localhost:8080/; sleep 1; done
 ```
 
+To view stats, Navigate to the container and select your container>Stats tab
+![Stats  Viewer](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/docker-stats-view.png)
+
+
 **Stop your Application**</br>
 ```sh
 docker compose down
 ```
+
+**Quick Workarounds**
+Error: Cannot connect to the Docker daemon at unix:///Users/$user/.docker/run/docker.sock. Is the docker daemon running?</br>
+Fix: Start docker desktop with docker desktop start</br>
+✓ Starting Docker Desktop</br>
+
+Error: Build Error: An error occurred during this build. Check the error logs for more details.</br>
+Fix: </br>
+FROM eclipse-temurin:21-jdk-jammy as deps >> FROM eclipse-temurin:21-jdk-jammy AS deps</br>
+FROM package as extract >> FROM package AS extract</br>
+FROM deps aS package >> FROM deps AS package</br>
+
+Error: Error response from daemon: driver failed programming external connectivity on endpoint </br> whale-of-a-time-server-1 (a1x...): Bind for 0.0.0.0:8080 failed: port is already allocated </br>
+Fix: lsof -i:8080 </br>
+kill -9 PID </br>
+
+Error: ERROR: Attestation is not supported for the docker driver.
+Switch to a different driver, or turn on the containerd image store, and try again.
+Learn more at https://docs.docker.com/go/attestations/
+![Containerd DD Settings](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/dd-settings-containerd.png)
+![Containerd DD Settings](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/dd-containerd.png)
+
+Error: ✗ Error → Unable to activate Docker Scout because your organization ORGNAME has reached the repository limit for your plan. Upgrade your plan at https://dockr.ly/scout-upgrade
+Fix: Please reach out to Sirish and Sindhura
