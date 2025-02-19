@@ -4,11 +4,11 @@
 Overview
 In this lab, you'll learn</br>
 
-This lab covers Containerization Fundamentals:
-Introduction to containerization and Docker basics.
-Understanding Docker containers, their architecture, and key concepts.
-Learning to containerize applications, including Java and microservices.
-Guided tour of Discover Docker Desktop and its suite of products
+This lab covers Containerization Fundamentals:</br>
+Introduction to containerization and Docker basics.</br>
+Understanding Docker containers, their architecture, and key concepts.</br>
+Learning to containerize applications, including Java and microservices.</br>
+Guided tour of Discover Docker Desktop and its suite of products</br>
 
 Docker Desktop is an all-in-one application for Mac, Linux, or Windows that allows you to build, share, and run containerized applications and microservices. </br>
 It provides a user-friendly graphical interface for managing containers, applications, and images directly from your machine.</br>
@@ -109,8 +109,11 @@ Containerization is a technology that allows you to package an application and a
 **Why Use Containers?**
 **Containers offer several advantages:**
 **Isolation:** Each container runs in its own isolated environment, minimizing conflicts with other </br>applications or system components.</br>
+
 **Portability:** Containers can run on any system that supports the container runtime, making it easy to </br>move applications between different environments.</br>
+
 **Efficiency:** Containers share the host system's kernel, making them lighter and faster to start compared </br>to traditional virtual machines.</br>
+
 **Consistency:** Containers ensure that an application runs the same way in development, testing, and </br>production environments.</br>
 
 **Introduction to Docker**
