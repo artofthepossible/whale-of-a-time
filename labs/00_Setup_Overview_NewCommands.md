@@ -92,10 +92,10 @@ This allows you to search for containers, images, extensions, volumes, and even 
 
 ### Docker scout and Docker Build Cloud Commands
 
-docker scout quickview ✓ CVE overview and recommendations
-docker scout cves ✓ Analyze image for security vulnerabilities
-docker scout policy ✓ Evaluate image policies for compliance
-docker buildx build --builder dbc-builder image:tag
+**docker scout quickview** ✓ CVE overview and recommendations
+**docker scout cves** ✓ Analyze image for security vulnerabilities
+**docker scout policy** ✓ Evaluate image policies for compliance
+**docker buildx build** --builder dbc-builder image:tag
 
 ### Containerization Fundamentals
 **Introduction to containerization and Docker basics.** </br>
@@ -104,7 +104,7 @@ docker buildx build --builder dbc-builder image:tag
 
 **Containerization Fundamentals: Introduction and Docker Basics**
 **What is Containerization?**
-Containerization is a technology that allows you to package an application and all its dependencies into a </br>standardized unit called a container. This container can run consistently across different computing </br>environments, ensuring that the application works the same way regardless of where it's deployed.</br>
+Containerization is a technology that allows you to package an application and all its dependencies into a standardized unit called a container. This container can run consistently across different computing environments, ensuring that the application works the same way regardless of where it's deployed.</br>
 
 **Why Use Containers?**
 **Containers offer several advantages:**
@@ -123,17 +123,17 @@ Docker Desktop reduces the time spent on complex setups so you can focus on writ
 
 **Key Docker Concepts**
 
-Container: A runnable instance of an image that is isolated from other containers and the host system.</br>
-Image: A read-only template containing instructions for creating a Docker container. Images includes everything needed to run an application.</br>
-Dockerfile: A text file that contains instructions for building a Docker image.</br>
-Docker Hub: A cloud-based registry service for sharing and managing container images.</br>
+**Container:** A runnable instance of an image that is isolated from other containers and the host system.</br>
+**Image:** A read-only template containing instructions for creating a Docker container. Images includes everything needed to run an application.</br>
+**Dockerfile:** A text file that contains instructions for building a Docker image.</br>
+**Docker Hub:** A cloud-based registry service for sharing and managing container images.</br>
 
 **Basic Docker Commands**
-docker run: Create and start a new container from an image</br>
-docker build: Build a Docker image from a Dockerfile</br>
-docker pull: Download an image from a registry (like Docker Hub)</br>
-docker push: Upload an image to a registry</br>
-docker ps: List running containers</br>
+**docker run:** Create and start a new container from an image</br>
+**docker build:** Build a Docker image from a Dockerfile</br>
+**docker pull:** Download an image from a registry (like Docker Hub)</br>
+**docker push:** Upload an image to a registry</br>
+**docker ps:** List running containers</br>
 
 **Getting Started with Docker**
 To begin using Docker:
