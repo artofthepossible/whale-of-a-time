@@ -92,29 +92,26 @@ This allows you to search for containers, images, extensions, volumes, and even 
 
 ### Docker scout and Docker Build Cloud Commands
 
-**docker scout quickview** ✓ CVE overview and recommendations
-**docker scout cves** ✓ Analyze image for security vulnerabilities
-**docker scout policy** ✓ Evaluate image policies for compliance
-**docker buildx build** --builder dbc-builder image:tag
+**docker scout quickview** ✓ CVE overview and recommendations</br>
+**docker scout cves** ✓ Analyze image for security vulnerabilities</br>
+**docker scout policy** ✓ Evaluate image policies for compliance</br>
+**docker buildx build** --builder dbc-builder image:tag</br>
 
 ### Containerization Fundamentals
-**Introduction to containerization and Docker basics.** </br>
-**Understanding Docker containers, their architecture, and key concepts.**</br>
-**Learning to containerize applications, including Java and microservices.**</br>
 
-**Containerization Fundamentals: Introduction and Docker Basics**
-**What is Containerization?**
+**Introduction and Docker Basics**</br>
+**What is Containerization?**</br>
 Containerization is a technology that allows you to package an application and all its dependencies into a standardized unit called a container. This container can run consistently across different computing environments, ensuring that the application works the same way regardless of where it's deployed.</br>
 
-**Why Use Containers?**
-**Containers offer several advantages:**
-**Isolation:** Each container runs in its own isolated environment, minimizing conflicts with other </br>applications or system components.</br>
+**Why Use Containers?**</br>
+**Containers offer several advantages:**</br>
+**Isolation:** Each container runs in its own isolated environment, minimizing conflicts with other applications or system components.</br>
 
-**Portability:** Containers can run on any system that supports the container runtime, making it easy to </br>move applications between different environments.</br>
+**Portability:** Containers can run on any system that supports the container runtime, making it easy to move applications between different environments.</br>
 
-**Efficiency:** Containers share the host system's kernel, making them lighter and faster to start compared </br>to traditional virtual machines.</br>
+**Efficiency:** Containers share the host system's kernel, making them lighter and faster to start compared to traditional virtual machines.</br>
 
-**Consistency:** Containers ensure that an application runs the same way in development, testing, and </br>production environments.</br>
+**Consistency:** Containers ensure that an application runs the same way in development, testing, and production environments.</br>
 
 **Introduction to Docker**
 Docker Desktop is a one-click-install application for your Mac, Linux, or Windows environment that lets you build, share, and run containerized applications and microservices.
@@ -132,11 +129,11 @@ Docker Desktop reduces the time spent on complex setups so you can focus on writ
 **Docker Hub:** A cloud-based registry service for sharing and managing container images.</br>
 
 **Basic Docker Commands**
-**docker run:** Create and start a new container from an image</br>
-**docker build:** Build a Docker image from a Dockerfile</br>
-**docker pull:** Download an image from a registry (like Docker Hub)</br>
-**docker push:** Upload an image to a registry</br>
-**docker ps:** List running containers</br>
+**<p style="color:blue">docker run:</p>** Create and start a new container from an image</br>
+**<p style="color:blue">docker build:</p>** Build a Docker image from a Dockerfile</br>
+**<p style="color:blue">docker pull:</p>** Download an image from a registry (like Docker Hub)</br>
+**<p style="color:blue">docker push:</p>** Upload an image to a registry</br>
+**<p style="color:blue">docker ps:</p>** List running containers</br>
 
 **Getting Started with Docker**
 To begin using Docker:
