@@ -1,8 +1,10 @@
-### Using Docker Desktop and the Docker Init Command Lab
+### Learning to containerize applications Lab
 
 Overview
-In this lab, you'll learn 
-The fundamentals docker init CLI commands to kickstart your containerization process, understand the inputs and outputs.
+In this lab, you'll be 
+Learning to containerize applications, including Java and microservices.
+Docker image building best practices and efficient ways to create Dockerfiles.
+Understand fundamentals docker init and how this cli command can to kickstart your containerization process
 Learn how to mount a volume in a Docker container to persist data and share files between the host and the container.
 Guide you through the process of optimizing your Java application running in a Docker container by modifying Java arguments and entrypoints.
 
@@ -16,7 +18,6 @@ Time to Complete: 5-30 minutes
 ```sh
 git clone https://github.com/artofthepossible/whale-of-a-time
 ```
-
 
 ### Overview
 Creates Docker-related starter files for your project

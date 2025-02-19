@@ -1,7 +1,12 @@
-### Discover Docker Desktop and New Commands Lab
+### Containerization Fundamentals, Discover Docker Desktop, Docker Scout, Docker Build Cloud, Testcontainers, Docker Hub and New Commands Lab
 
 Overview
 In this lab, you'll get a guided tour of Docker Desktop and New Commands</br>
+
+This lab covers Containerization Fundamentals:
+Introduction to containerization and Docker basics.
+Understanding Docker containers, their architecture, and key concepts.
+Learning to containerize applications, including Java and microservices.
 
 Docker Desktop is an all-in-one application for Mac, Linux, or Windows that allows you to build, share, and run containerized applications and microservices. </br>
 It provides a user-friendly graphical interface for managing containers, applications, and images directly from your machine.</br>
@@ -90,6 +95,55 @@ docker scout cves ✓ Analyze image for security vulnerabilities
 docker scout policy ✓ Evaluate image policies for compliance
 docker buildx build --builder dbc-builder image:tag
 
+### Containerization Fundamentals
+**Introduction to containerization and Docker basics.** </br>
+**Understanding Docker containers, their architecture, and key concepts.**</br>
+**Learning to containerize applications, including Java and microservices.**</br>
+
+**Containerization Fundamentals: Introduction and Docker Basics**
+**What is Containerization?**
+Containerization is a technology that allows you to package an application and all its dependencies into a </br>standardized unit called a container. This container can run consistently across different computing </br>environments, ensuring that the application works the same way regardless of where it's deployed.</br>
+
+**Why Use Containers?**
+**Containers offer several advantages:**
+**Isolation:** Each container runs in its own isolated environment, minimizing conflicts with other </br>applications or system components.</br>
+**Portability:** Containers can run on any system that supports the container runtime, making it easy to </br>move applications between different environments.</br>
+**Efficiency:** Containers share the host system's kernel, making them lighter and faster to start compared </br>to traditional virtual machines.</br>
+**Consistency:** Containers ensure that an application runs the same way in development, testing, and </br>production environments.</br>
+
+**Introduction to Docker**
+Docker Desktop is a one-click-install application for your Mac, Linux, or Windows environment that lets you build, share, and run containerized applications and microservices.
+
+It provides a straightforward GUI (Graphical User Interface) that lets you manage your containers, applications, and images directly from your machine.
+
+Docker Desktop reduces the time spent on complex setups so you can focus on writing code. It takes care of port mappings, file system concerns, and other default settings, and is regularly updated with bug fixes and security updates.
+
+
+**Key Docker Concepts**
+
+Container: A runnable instance of an image that is isolated from other containers and the host system.</br>
+Image: A read-only template containing instructions for creating a Docker container. Images includes everything needed to run an application.</br>
+Dockerfile: A text file that contains instructions for building a Docker image.</br>
+Docker Hub: A cloud-based registry service for sharing and managing container images.</br>
+
+**Basic Docker Commands**
+docker run: Create and start a new container from an image</br>
+docker build: Build a Docker image from a Dockerfile</br>
+docker pull: Download an image from a registry (like Docker Hub)</br>
+docker push: Upload an image to a registry</br>
+docker ps: List running containers</br>
+
+**Getting Started with Docker**
+To begin using Docker:
+Install Docker Desktop on your machine.
+Run your first container using a simple command like:
+
+```sh
+docker run -d -p 127.0.0.1:3000:3000 getting-started
+```
+Learn to build your own images and push them to Docker Hub.</br>
+For a more detailed guide, refer to the Docker Get Started documentation.</br>
+By understanding these fundamentals, you'll be well on your way to leveraging containerization and Docker in</br> your development workflow.</br>
 
 ### Resources
 [Docker Init](https://docs.docker.com/reference/cli/docker/init/)

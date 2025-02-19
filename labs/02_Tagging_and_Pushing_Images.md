@@ -1,4 +1,4 @@
-### Using Docker tag and push Commands Lab
+### Tagging and Pushing Images Lab
 
 Overview
 In this lab, you'll learn the following

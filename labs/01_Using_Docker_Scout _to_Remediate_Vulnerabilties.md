@@ -1,7 +1,9 @@
-### Using Docker Scout Lab
+### Using Docker Scout Lab to Detect and Remediate CVEs
 
 Overview
 In this lab, you'll learn the fundamentals of docker scout.
+Docker Scout, 24/7 analysis of your images, and managing registries.
+
 Detect and Remediate vulnerabilities earlier in development to Improve you Secure Software Supply Chain 
 
 Time to Complete: 15-20 minutes

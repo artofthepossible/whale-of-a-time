@@ -1,4 +1,4 @@
-### Using Docker Scout Lab
+### Using Docker Scout to Remediate CVEs and Deliver higher quality applications Lab
 
 Overview
 In this lab, you'll learn the fundamentals of docker scout.

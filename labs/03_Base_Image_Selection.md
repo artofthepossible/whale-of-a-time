@@ -1,7 +1,9 @@
 ### Using Base Image Selection Lab
 
 Overview
-In this lab, you'll get an overview of how to update base images, make changes, and rebuild the resulting image in Docker locally as well as with Docker Build Cloud:
+In this lab, you'll learn
+How to work with Multistage builds and optimize containers.
+How to update base images, make changes, and rebuild the resulting image in Docker locally as well as with Docker Build Cloud:
 
 Time to Complete: 15-20 minutes
 

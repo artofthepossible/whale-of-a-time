@@ -1,4 +1,4 @@
-### Using Testcontainers
+### Using Testcontainers and Ephemeral Containers to Supoercharge Testing
 
 Overview
 In this lab, you'll learn the fundamentals of testcontainers and how to setup testcontainers cloud</br>
