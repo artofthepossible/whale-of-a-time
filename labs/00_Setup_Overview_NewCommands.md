@@ -1,12 +1,14 @@
-### Containerization Fundamentals, Discover Docker Desktop, Docker Scout, Docker Build Cloud, Testcontainers, Docker Hub and New Commands Lab
+### Containerization Fundamentals
+
 
 Overview
-In this lab, you'll get a guided tour of Docker Desktop and New Commands</br>
+In this lab, you'll learn</br>
 
 This lab covers Containerization Fundamentals:
 Introduction to containerization and Docker basics.
 Understanding Docker containers, their architecture, and key concepts.
 Learning to containerize applications, including Java and microservices.
+Guided tour of Discover Docker Desktop and its suite of products
 
 Docker Desktop is an all-in-one application for Mac, Linux, or Windows that allows you to build, share, and run containerized applications and microservices. </br>
 It provides a user-friendly graphical interface for managing containers, applications, and images directly from your machine.</br>
@@ -139,8 +141,9 @@ Install Docker Desktop on your machine.
 Run your first container using a simple command like:
 
 ```sh
-docker run -d -p 127.0.0.1:3000:3000 getting-started
+docker run -d hello-world
 ```
+
 Learn to build your own images and push them to Docker Hub.</br>
 For a more detailed guide, refer to the Docker Get Started documentation.</br>
 By understanding these fundamentals, you'll be well on your way to leveraging containerization and Docker in</br> your development workflow.</br>
