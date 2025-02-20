@@ -153,7 +153,7 @@ Learn to build your own images and push them to Docker Hub.</br>
 For a more detailed guide, refer to the Docker Get Started documentation.</br>
 By understanding these fundamentals, you'll be well on your way to leveraging containerization and Docker in</br> your development workflow.</br>
 
-![Developer Flow](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/container-contepts.png)
+![Developer Flow](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/container-concepts.png)
 
 ### Resources
 [Docker Init](https://docs.docker.com/reference/cli/docker/init/)

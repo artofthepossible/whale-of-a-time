@@ -148,15 +148,12 @@ You can view the bindmounts for /tmp/logs
 
 **Container File Update**</br>
 You can view logs written to /tmp/logs directly in docker desktop inside the container are persisted on the host machine in the ./logs directory
-![Container Files View](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/mount-file-view.png)
-
 
 In a separate terminal, Navigate to the ~/whale-of-a-time/logs to view the logs generated
 ```sh
 cd ~/whale-of-a-time/logs 
 cat ~/Apps/whale-of-a-time/logs/spring.log
 ```
-![Container Files Viewer](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/mount-file-view.png)
 
 **Stop your application**
 4. Stop your application
@@ -202,9 +199,8 @@ ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS org.springframework.boot.loader.launch
 -Djava.security.egd=file:/dev/./urandom: Improves randomness source performance, speeding up application startup.
 
 Alternatives:
-ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:InitialRAMPercentage=50 -XX:MaxRAMPercentage=80 -XX:+UseG1GC -XX:+ExitOnOutOfMemoryError -Djava.security.egd=file:/dev/./urandom"
+ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:InitialRAMPercentage=50 -XX:MaxRAMPercentage=80 -XX:+UseG1GC -XX:+ExitOnOutOfMemoryError -Djava.security.egd=file:/dev/./urandom"</br>
 This makes the JVM container-aware, preventing out-of-memory issues.
-
 </br>
 
 ```sh
