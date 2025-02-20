@@ -19,6 +19,7 @@ What’s Included
 | Secure your Software Supply Chain with Docker Scout| Learn how to Build your image with Docker Scout | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/05_Secure_your_supply_chain_with_docker_scout.md)  |
 | Using Testcontainers for Testing and Validation| Learn how to setup and use Testcontainers and Testcontainers Cloud | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/06_Using_testcontainers_for_Testing_and_Validation.md)  |
 | Debugging and Profiling Containerized Applications| Learn how to debug containerized applications, analyze logs, and profile CPU and memory characteristics | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/07_Debugging%20and_Profiling%20Containerized_Applications.md)  |
+| FAQ| Frequenty Asked Questions/Survey | [Open](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/08_FAQ.md)  |
 
 ### Feedback
 Feedback and contributions are always welcome!

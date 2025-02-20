@@ -3,17 +3,23 @@
 Overview
 In this lab, you'll learn the fundamentals of testcontainers and how to setup testcontainers cloud</br>
 
-Testcontainers is an opensource framework for providing lightweight, throwaway </br>instances of common databases, Selenium web browsers, or anything else that can run </br>in a Docker container</br>
+Testcontainers is an opensource framework for providing lightweight, throwaway </br>instances of common databases, Selenium web browsers, or anything else that can run </br>in a Docker container</br>We are helping developers to improve their code quality
 
-With Testcontainers cloud, we are helping developers to improve their code quality by providing them </br>
+There are several benefits to developers
+1. Lets developers have complete control of services during testing
+2. Ability to run containers for testing locally or remotely
+3. Consistency of test results weather running locally or in CI Pipelines
+
+At a high level, Testcontainers Cloud lets development teams burst into the cloud to be able to run tests at scale with dynamic scaling.  </br>
+There are several benefits to developent teams:
 - Ephemeral, scalable test resources </br>
 - Consistent environments across teams </br>
 - Faster feedback cycles and reduced flaky tests </br>
 
-At a high level, Testcontainers Cloud lets development teams burst into the cloud to be able to run tests at scale</br>
-In an infrastructure as code manner, They get to spin up unit and integration tests  </br>
-using their domain specific language and execute these in parallel</br>
+In an infrastructure as code manner, They get to spin up unit and integration tests using their domain specific language and execute these in parallel</br>
 
+## Development Benefits
+![Developer Flow](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/testcontainers.png)
 
 Time to Complete: 15-20 minutes
 

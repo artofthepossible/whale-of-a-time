@@ -7,6 +7,137 @@ How to update base images, make changes, and rebuild the resulting image in Dock
 
 Time to Complete: 15-20 minutes
 
+Overivew
+This Dockerfile is a multi-stage file designed to create a lightweight, production-ready container for a Spring Boot application. It uses multiple stages to optimize the build process, reduce the final image size, and improve caching. 
+Here's a detailed breakdown of each stage:
+```sh
+FROM eclipse-temurin:21-jdk-jammy AS deps
+```
+[See documentation]⁠(https://docs.docker.com/reference/dockerfile/#from)
+
+Starts the first stage named deps using the Eclipse Temurin JDK 21 base image. This stage is used to prepare dependencies for the build.
+[See documentation]⁠(https://docs.docker.com/reference/dockerfile/#workdir)
+```sh
+WORKDIR /build
+```
+Sets the working directory to /build for subsequent commands in this stage.
+[See documentation]⁠(https://docs.docker.com/reference/dockerfile/#workdir)
+```sh
+COPY .mvn/ .mvn/
+```
+
+Copies the .mvn directory (used by the Maven wrapper) into the container.
+[See documentation]⁠(https://docs.docker.com/reference/dockerfile/#copy)
+```sh
+RUN --mount=type=bind,source=pom.xml,target=pom.xml,readonly \
+--mount=type=cache,target=/root/.m2 \
+./mvnw dependency:go-offline -DskipTests
+```
+Runs the Maven wrapper to download all dependencies required for the project in offline mode.
+The --mount option is used to mount files or directories from the host machine into the container. In this case, it specifies a bind mount, which means a file or directory on the host machine is mounted into the container at a specified location. The type=bind indicates that this is a bind mount.
+
+The source=pom.xml part specifies the source file on the host machine that will be mounted. The target=pom.xml part specifies the target location inside the container where the source file will be mounted. By using the same name for both source and target, the pom.xml file from the host is directly accessible as pom.xml inside the container.
+
+The readonly option makes the mounted file read-only inside the container. This means that any processes running inside the container can read the pom.xml file but cannot modify it. This is useful for ensuring that the file remains unchanged during the build process, which can help maintain consistency and prevent accidental modifications.
+```sh
+--mount=type=bind: Mounts the pom.xml file as read-only to avoid copying it into the image.
+--mount=type=cache: Caches Maven dependencies in /root/.m2 to speed up subsequent builds.
+```
+dependency:go-offline: Downloads all dependencies without running tests.
+[See documentation]⁠(https://docs.docker.com/reference/dockerfile/#run)
+
+```sh
+FROM deps AS package
+```
+Starts a new stage named package, inheriting from the deps stage. This stage builds the application.
+[See documentation]⁠(https://docs.docker.com/reference/dockerfile/#from)
+```sh
+WORKDIR /build
+```
+Sets the working directory to /build for this stage.
+[See documentation][⁠(](https://docs.docker.com/reference/dockerfile/#workdir))
+```sh
+RUN --mount=type=bind,source=pom.xml,target=pom.xml,readonly \
+--mount=type=cache,target=/root/.m2 \
+./mvnw package -DskipTests && \
+mv target/$(./mvnw help:evaluate -Dexpression=project.artifactId -q -DforceStdout)-$(./mvnw help:evaluate -Dexpression=project.version -q -DforceStdout).jar target/app.jar
+```
+
+Builds the application using Maven
+
+The mvnw package command compiles the code and packages it into a JAR file.
+The mv command renames the generated JAR file to app.jar for consistency.
+[See documentation]⁠(https://docs.docker.com/reference/dockerfile/#run)
+
+```sh
+FROM deps AS package
+```
+Starts a new stage named package, inheriting from the deps stage. This stage builds the application.
+[See documentation]⁠(https://docs.docker.com/reference/dockerfile/#from)
+```sh
+FROM package AS extract
+```
+Starts a new stage named extract, inheriting from the package stage. This stage extracts the Spring Boot JAR layers.
+
+[See documentation]⁠(https://docs.docker.com/reference/dockerfile/#from)
+```sh
+RUN java -Djarmode=layertools -jar target/app.jar extract --destination target/extracted
+```
+Uses the Spring Boot layertools feature to extract the JAR file into layers. This allows for better caching and smaller image layers in the final stage.
+
+[See documentation]⁠(https://docs.docker.com/reference/dockerfile/#run)
+
+```sh
+FROM eclipse-temurin:21-jre-jammy AS final
+```
+Starts the final stage named final using the Eclipse Temurin JRE 21 base image. This stage is optimized for running the application.
+
+```sh
+ARG UID=10001
+```
+Defines a build-time argument UID with a default value of 10001. This is used to create a non-root user.
+
+[See documentation]⁠(https://docs.docker.com/reference/dockerfile/#run)
+```sh
+RUN adduser \
+--disabled-password \
+--gecos "" \
+--home "/nonexistent" \
+--shell "/sbin/nologin" \
+--no-create-home \
+--uid "${UID}" \
+appuser
+```
+Creates a non-root user named appuser with the specified UID. The user has no home directory, no login shell, and no password.
+
+See documentation⁠
+```sh
+USER appuser
+```
+Switches to the appuser user for running the application, improving security.
+
+[See documentation]⁠(https://docs.docker.com/reference/dockerfile/#user)
+
+```sh
+COPY --from=extract /build/target/extracted/dependencies/ ./
+COPY --from=extract /build/target/extracted/spring-boot-loader/ ./
+COPY --from=extract /build/target/extracted/snapshot-dependencies/ ./
+COPY --from=extract /build/target/extracted/application/ ./
+```
+Copies the extracted JAR layers (dependencies, Spring Boot loader, snapshot dependencies, and application code) from the extract stage into the final image.
+[See documentation]⁠(https://docs.docker.com/reference/dockerfile/#copy)
+
+EXPOSE 8080
+
+Documents that the application listens on port 8080. This does not actually publish the port; it is for informational purposes.
+
+[See documentation]⁠(https://docs.docker.com/reference/dockerfile/#expose)
+ENTRYPOINT [ "java", "org.springframework.boot.loader.launch.JarLauncher" ]
+
+Sets the default command to run the application using the Spring Boot JarLauncher.
+
+[See documentation]⁠(https://docs.docker.com/reference/dockerfile/#entrypoint)
+
 ### How to Use This Hands-On Lab
 
 ### Steps

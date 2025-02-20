@@ -8,10 +8,13 @@ This lab covers Containerization Fundamentals:</br>
 Introduction to containerization and Docker basics.</br>
 Understanding Docker containers, their architecture, and key concepts.</br>
 Learning to containerize applications, including Java and microservices.</br>
-Guided tour of Discover Docker Desktop and its suite of products</br>
+Guided tour of Discover Docker Desktop and its suite of products and the develop </br>
 
 Docker Desktop is an all-in-one application for Mac, Linux, or Windows that allows you to build, share, and run containerized applications and microservices. </br>
 It provides a user-friendly graphical interface for managing containers, applications, and images directly from your machine.</br>
+ 
+## Development Benefits
+![Developer Flow](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/docker-development-benefits.png)
 
 When you open Docker Desktop, you'll see the Docker Desktop Dashboard, which offers several key views:</br>
 
@@ -128,6 +131,8 @@ Docker Desktop reduces the time spent on complex setups so you can focus on writ
 **Dockerfile:** A text file that contains instructions for building a Docker image.</br>
 **Docker Hub:** A cloud-based registry service for sharing and managing container images.</br>
 
+![Concepts](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/container-contepts.png)
+
 **Basic Docker Commands**
 **<p style="color:blue">docker run:</p>** Create and start a new container from an image</br>
 **<p style="color:blue">docker build:</p>** Build a Docker image from a Dockerfile</br>
@@ -147,6 +152,8 @@ docker run -d hello-world
 Learn to build your own images and push them to Docker Hub.</br>
 For a more detailed guide, refer to the Docker Get Started documentation.</br>
 By understanding these fundamentals, you'll be well on your way to leveraging containerization and Docker in</br> your development workflow.</br>
+
+![Developer Flow](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/container-contepts.png)
 
 ### Resources
 [Docker Init](https://docs.docker.com/reference/cli/docker/init/)

@@ -3,9 +3,9 @@ New users can subscribe to get new features and updates from Docker by following
 
 Create a Docker Account: If you're new to Docker, you'll need to create an account. You can do this by visiting the Docker Hub signup page⁠.</br>
 
-Subscribe to the Docker Newsletter: This is a great way to stay informed about the latest updates, features, and best practices. You can subscribe to the newsletter by visiting the Docker Newsletter Subscription page⁠.</br>
+**Subscribe to the Docker Newsletter**: This is a great way to stay informed about the latest updates, features, and best practices. You can subscribe to the newsletter by visiting the Docker Newsletter Subscription page⁠.</br>
 
-Authenticate and Update: To receive the newest Docker Desktop features according to your subscription level, you should authenticate and update your Docker Desktop.</br> 
+**Authenticate and Update**: To receive the newest Docker Desktop features according to your subscription level, you should authenticate and update your Docker Desktop.</br> 
 
 By following these steps, new users can ensure they receive the latest updates and features from Docker.</br> For more detailed information, you can always refer to the official Docker documentation⁠.</br>
 
@@ -43,9 +43,13 @@ Each container should have a single responsibility. Decoupling applications into
 Keep your images lean by only installing the packages necessary for your application to run. This reduces complexity and potential security vulnerabilities.</br>
 [More on avoiding unnecessary packages⁠.](https://docs.docker.com/build/building/best-practices/?uuid=cb4cdc14-cb41-45e5-b3fb-92a0c7538455%0A#dont-install-unnecessary-packages)
 
-**Use Docker Compose for Multi-Container Applications:**
+**Consider Docker Compose for Developers who need to setup multiple services locally Multi-Container Applications :**
 
-Docker Compose allows you to define and manage multi-container applications in a single YAML file, simplifying configuration and scaling. Useful for setting up local experiments
+Docker Compose can be usseful for tighter feed back loop experimentation, setting up local experiments, rapid onboarding (Using compose, they can get started with a single click, avoiding the lengthy setup process of installing and configuring multiple services locally.)
+
+Provides easy command for managing the entire application lifecycle docker compose up -d to bring up the multiple applciations and docker compose down to bring them down.
+
+Compose file allows you to define and manage multi-container applications in a single YAML file, simplifying configuration and scaling. 
 [Learn about Docker Compose⁠.](https://docs.docker.com/get-started/docker-concepts/running-containers/multi-container-applications/?uuid=cb4cdc14-cb41-45e5-b3fb-92a0c7538455%0A)
 
 **Implement Security Best Practices:**
@@ -115,3 +119,15 @@ Scale and Maintain: Use Terraform to manage scaling and updates to your infrastr
 [Helm Documentation⁠] (https://helm.sh/docs/)</br>
 
 This approach provides a robust way to manage both your infrastructure and application deployments using Terraform and Helm.</br>
+
+**Container Migration to AWS: Frequently Asked Questions**
+The AWS Container Migration Methodology whitepaper outlines the steps for migrating containerized applications to the AWS Cloud.  
+
+The AWS Container Migration Methodology whitepaper provides a comprehensive framework for migrating containerized applications to the AWS Cloud, with a particular focus on networking considerations.
+
+Amazon Virtual Private Cloud (VPC): The whitepaper emphasizes the importance of planning the IP segment for Pods within the VPC. This planning is crucial for ensuring proper network isolation and communication between containerized applications. 
+
+Network Isolation: Utilizing VPCs and subnets allows for network isolation, which is vital for securing containerized applications. This isolation ensures that applications operate within a controlled network environment, reducing the risk of unauthorized access. 
+
+For more advanced topics please engage 
+For workload/application specific discussions, please engage your AWS Account Team and AWS Solution Architect

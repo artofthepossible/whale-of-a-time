@@ -6,6 +6,10 @@ Docker Scout, 24/7 analysis of your images, and managing registries.
 
 Detect and Remediate vulnerabilities earlier in development to Improve you Secure Software Supply Chain 
 
+## Development Benefits
+![Developer Flow](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/docker-scout-benefits.png)
+
+
 Time to Complete: 15-20 minutes
 
 ### How to Use This Hands-On Lab
@@ -34,7 +38,11 @@ Implement security policies that govern how software is built, and the component
 
    ```sh 
    docker scout repo enable --org ORG_NAME ORG_NAME/scout-demo
+   
+   docker scout repo enable --org demonstrationorg demonstrationorg/whale-of-a-time-server 
+   
    ```
+You can also Manage repositories in the Docker Scout Dashboard → https://scout.docker.com/org/demonstrationorg/settings/repos
 
 2. Setup docker desktop settings
     Enable image SBOM indexing.
@@ -42,7 +50,6 @@ Implement security policies that govern how software is built, and the component
     Enable containerd for pulling and storing images then apply and restart 
      The containerd image store extends the range of image types that Docker Engine can natively interact with. This unlocks various new use cases, including:
         Building multi-platform images and images with attestations
-        The ability to build and run Wasm containers
 
 ### Part 2: Scout: Docker Desktop and CLI - Issue identification and Analysis
 
@@ -83,11 +90,40 @@ To view the summary of image vulnerabilities and recommendations, we run the fir
     docker scout cves demonstrationorg/whale-of-a-time-server:v1.0
     ```
 
-5. To view the docker scout recommendations, , we run the third command to compare and contrast the image across two builds,  
+5. To view the docker scout recommendations,we run the third command to compare and contrast the image across two builds,  
     ```sh 
     docker scout recommendations demonstrationorg/whale-of-a-time-server:v1.0
     ```
 
+6. To  View policy violations, we run the third command
+    ```sh 
+   docker scout policy whale-of-a-time-server --org demonstrationorg
+    ```
+
+## How would you resolve the "Supply chain attestations" policy evaluation results
+Images should have both a software bill of materials and a provenance attached.
+
+                  Requirement                 │  State   
+──────────────────────────────────────────────┼──────────
+  SBOM attestation exists                     │ Missing  
+  Provenance attestation with max mode exists │ Missing  
+7. To build a Docker image without using the cache and include SBOM and provenance attestations, you can use the --no-cache option with the docker buildx build command.
+
+**--no-cache**: This option ensures that the build process does not use any cached layers, forcing a fresh build of all layers.</br>
+**--push**: This option pushes the built image directly to a Docker registry.</br>
+**--sbom=true**: This option generates a Software Bill of Materials (SBOM) attestation for the image.</br>
+**--provenance=true**: This option generates a provenance attestation for the image, providing metadata about how the image was built.</br>
+**-t whale-of-a-time-server**: This tags the image with the specified name.</br>
+
+Here's how you can do it:
+
+docker buildx build --no-cache --push --sbom=true --provenance=true -t ORG/IMAGE:TAG .
+    ```sh 
+docker tag whale-of-a-time-server:latest demonstrationorg/whale-of-a-time:v1.0
+docker buildx build --no-cache --push --sbom=true --provenance=true -t demonstrationorg/whale-of-a-time:v1.0 .
+    ```
+
+   
 ### Part 3: Health Scores - Docker Desktop:
 
 1. To view the health score of an image in Docker Desktop:

@@ -92,7 +92,7 @@ logging.file.path=/tmp/logs
 To include a volume for /tmp/logs in your Dockerfile and Docker Compose file, you can follow these steps:</br>
 
 **Dockerfile Update**</br>
-Add the VOLUME /tmp/logs instruction to your Dockerfile. This will create a mount point with the specified path and mark it as </br>holding externally mounted volumes from native host or other containers.</br>
+1. Add the VOLUME /tmp/logs instruction to your Dockerfile. This will create a mount point with the specified path and mark it as </br>holding externally mounted volumes from native host or other containers.</br>
 ```sh
 # ...existing code...
 
@@ -126,7 +126,7 @@ ENTRYPOINT [ "java", "org.springframework.boot.loader.launch.JarLauncher" ]
 ```
 
 **Docker Compose File Update**</br>
-Update your docker-compose.yml file to include the volume definition and mount it to the container.
+2. Update your docker-compose.yml file to include the volume definition and mount it to the container.
 ```sh
 services:
   app:
@@ -136,6 +136,12 @@ services:
     volumes:
       - ./logs:/tmp/logs
 ```
+**Start your application**
+3. Save and commit the changes to the dockerfile and compose file
+Start your applications
+```sh
+docker compose up --build
+```
 **View Bind Mounts**</br>
 You can view the bindmounts for /tmp/logs 
 ![Bind Mounts View](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/bind-mount-view.png)
@@ -144,12 +150,19 @@ You can view the bindmounts for /tmp/logs
 You can view logs written to /tmp/logs directly in docker desktop inside the container are persisted on the host machine in the ./logs directory
 ![Container Files View](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/mount-file-view.png)
 
+
 In a separate terminal, Navigate to the ~/whale-of-a-time/logs to view the logs generated
 ```sh
 cd ~/whale-of-a-time/logs 
 cat ~/Apps/whale-of-a-time/logs/spring.log
 ```
 ![Container Files Viewer](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/mount-file-view.png)
+
+**Stop your application**
+4. Stop your application
+```sh
+docker compose down
+```
 
 ### Part 5: Optimizing Java Application
 This section will guide you through the process of optimizing your Java application running in a Docker container by modifying Java arguments and entrypoints.</br>
@@ -166,7 +179,7 @@ Optimizing Java arguments and entrypoints can provide several benefits:
 **Resource Management**: Setting appropriate heap sizes ensures that your application uses the right amount of memory, preventing out-of-memory errors and reducing resource wastage.</br>
 **Stability**: Fine-tuning JVM options can lead to a more stable application by avoiding common pitfalls such as long garbage collection pauses.</br>
 
-Follow these steps to optimize your Java application:</br>
+1. Follow these steps to optimize your Java application:</br>
 ```sh
 Set Environment Variables for Java Options: </br>
 
@@ -179,7 +192,20 @@ ENV JAVA_OPTS="-Xms512m -Xmx1024m -XX:+UseG1GC -Djava.security.egd=file:/dev/./u
 ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS org.springframework.boot.loader.launch.JarLauncher" ]
 ```
 
-Define the Entrypoint: Modify the ENTRYPOINT to include the JAVA_OPTS environment variable, allowing you to pass JVM arguments when starting the application.</br>
+2. Define the Entrypoint: Modify the ENTRYPOINT to include the JAVA_OPTS environment variable, allowing you to pass JVM arguments when starting the application.</br>
+
+✅ Breakdown of Options:</br>
+
+-Xms512m: Sets the initial heap size to 512MB.</br>
+-Xmx1024m: Limits the maximum heap size to 1024MB (1GB).</br>
+-XX:+UseG1GC: Enables the G1 Garbage Collector (G1GC), which is optimized for low-latency applications.</br>
+-Djava.security.egd=file:/dev/./urandom: Improves randomness source performance, speeding up application startup.
+
+Alternatives:
+ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:InitialRAMPercentage=50 -XX:MaxRAMPercentage=80 -XX:+UseG1GC -XX:+ExitOnOutOfMemoryError -Djava.security.egd=file:/dev/./urandom"
+This makes the JVM container-aware, preventing out-of-memory issues.
+
+</br>
 
 ```sh
 # syntax=docker/dockerfile:1
@@ -283,6 +309,9 @@ ENV JAVA_OPTS="-Xms512m -Xmx1024m -XX:+UseG1GC -Djava.security.egd=file:/dev/./u
 # Define the entrypoint with Java options
 ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS org.springframework.boot.loader.launch.JarLauncher" ]
 ```
+
+3. Start your application
+Save your changes then start your application
 ```sh
 docker compose up --build -d
 ```
@@ -319,7 +348,8 @@ To view stats, Navigate to the container and select your container>Stats tab
 ![Stats  Viewer](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/docker-stats-view.png)
 
 
-**Stop your Application**</br>
+**Stop your application**
+4. Stop your application
 ```sh
 docker compose down
 ```
@@ -346,4 +376,4 @@ Learn more at https://docs.docker.com/go/attestations/
 ![Containerd DD Settings](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/dd-containerd.png)
 
 Error: ✗ Error → Unable to activate Docker Scout because your organization ORGNAME has reached the repository limit for your plan. Upgrade your plan at https://dockr.ly/scout-upgrade
-Fix: Please reach out to Sirish and Sindhura
+Fix: Please reach out to Paluru, Sirisha and Sindhura
