@@ -43,6 +43,8 @@ When you open Docker Desktop, you'll see the Docker Desktop Dashboard, which off
 ```sh
 This provides a runtime view of all your containers and applications.
 You can interact with containers, manage their lifecycle, and perform common actions.
+
+docker container ls
 ```
 
 ![Containers View](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/containers-view.png)
@@ -51,6 +53,9 @@ You can interact with containers, manage their lifecycle, and perform common act
 ```sh
 Here you can see a list of your Docker images, run images as containers, pull the latest versions from Docker Hub, and inspect images.
 It also shows image vulnerabilities and clean-up options.
+
+docker image ls
+
 ```
 ![Images Viewer](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/images-view.png)
 
@@ -58,6 +63,8 @@ It also shows image vulnerabilities and clean-up options.
 **Volumes view**: 
 ```sh
 This displays a list of volumes and allows you to create, delete, and see which ones are being used.
+
+docker volume ls
 ```
 ![Volume Viewer](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/volume-view.png)
 
@@ -66,6 +73,12 @@ This displays a list of volumes and allows you to create, delete, and see which 
 You can inspect your build history and manage builders here.
 ```
 ![Builds View](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/builds-view.png)
+
+**Extensions**: 
+```sh
+Docker Extensions let you use third-party tools within Docker Desktop to extend its functionality
+```
+![Extensions View](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/extensions.png)
 
 The Dashboard also provides access to:</br>
 
@@ -118,7 +131,7 @@ Containerization is a technology that allows you to package an application and a
 Docker Desktop reduces the time spent on complex setups so you can focus on writing code. It takes care of port mappings, file system concerns, and other default settings, and is regularly updated with bug fixes and security updates.
 
 **Key Docker Concepts**
-![Developer Flow](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/contepts.png)
+![Developer Flow](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/concepts.png)
 
 **Container:** A runnable instance of an image that is isolated from other containers and the host system.</br>
 **Image:** A read-only template containing instructions for creating a Docker container. Images includes everything needed to run an application.</br>
@@ -128,7 +141,7 @@ Docker Desktop reduces the time spent on complex setups so you can focus on writ
 **Basic Docker Commands**
 **<p>docker run:</p>** Create and start a new container from an image</br>
 **<p>docker build:</p>** Build a Docker image from a Dockerfile</br>
-**<p">docker pull:</p>** Download an image from a registry (like Docker Hub)</br>
+**<p>docker pull:</p>** Download an image from a registry (like Docker Hub)</br>
 **<p>docker push:</p>** Upload an image to a registry</br>
 **<p>docker ps:</p>** List running containers</br>
 
