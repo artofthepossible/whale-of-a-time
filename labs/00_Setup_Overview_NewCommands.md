@@ -97,6 +97,7 @@ Quick in-app walkthroughs and resources
 A key feature of Docker Desktop that is located in the Dashboard header.
 This allows you to search for containers, images, extensions, volumes, and even Docker documentation.
 ```
+![Quick Search](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/quick-search.png)
 
 ### Containerization Fundamentals
 
