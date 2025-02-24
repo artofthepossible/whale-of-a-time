@@ -148,10 +148,6 @@ docker compose up --build
 Volumes are managed by Docker and are not tied to a specific location on the host filesystem.  They're easy to manage with docker commands and offer better portability and often provide improved performance and backup capabilities.
 ![Volumes View](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/defined-volumes-view.png)
 
-**Container File Update**</br>
-You can view logs written to /tmp/logs directly in docker desktop inside the container are persisted on the host machine in the ./logs directory
-![Defined Volumes View](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/defined-volumes-view.png)
-
 **Stop your application**
 4. Stop your application
 ```sh
