@@ -74,10 +74,9 @@ Before this exercise, be sure to press Ctrl+C and stop the running container
 
 To enhance your existing Spring Boot application to allow an end user to mount a volume for logs, you can follow these steps:</br>
 
-This setup ensures that logs written to /tmp/logs inside the container are persisted on the host machine in the ./logs directory.</br>
 
 Dockerfile: Add VOLUME /tmp/logs to define the volume.</br>
-Docker Compose: Map the volume in docker-compose.yml to link the host directory to the container directory.</br>
+Docker Compose: Map the volume in docker-compose.yml</br>
 
 ```sh
 Modify the Application Properties</br>
@@ -126,7 +125,8 @@ ENTRYPOINT [ "java", "org.springframework.boot.loader.launch.JarLauncher" ]
 ```
 
 **Docker Compose File Update**</br>
-2. Update your docker-compose.yml file to include the volume definition and mount it to the container.
+2. Update your docker-compose.yml file to include the volume definition and mount it to the container.  Here docker, creates a managed volume called logs-volume that is moutnted at /tmp/logs inside the container.
+
 ```sh
 services:
   app:
@@ -134,7 +134,9 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - ./logs:/tmp/logs
+      - logs-volume:/tmp/logs
+volumes:
+  logs-volume:
 ```
 **Start your application**
 3. Save and commit the changes to the dockerfile and compose file
@@ -142,18 +144,13 @@ Start your applications
 ```sh
 docker compose up --build
 ```
-**View Bind Mounts**</br>
-You can view the bindmounts for /tmp/logs 
-![Bind Mounts View](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/bind-mount-view.png)
+**View Volumes **</br>
+Volumes are managed by Docker and are not tied to a specific location on the host filesystem.  They're easy to manage with docker commands and offer better portability and often provide improved performance and backup capabilities.
+![Volumes View](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/defined-volumes-view.png)
 
 **Container File Update**</br>
 You can view logs written to /tmp/logs directly in docker desktop inside the container are persisted on the host machine in the ./logs directory
-
-In a separate terminal, Navigate to the ~/whale-of-a-time/logs to view the logs generated
-```sh
-cd ~/whale-of-a-time/logs 
-cat ~/Apps/whale-of-a-time/logs/spring.log
-```
+![Defined Volumes View](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/defined-volumes-view.png)
 
 **Stop your application**
 4. Stop your application
