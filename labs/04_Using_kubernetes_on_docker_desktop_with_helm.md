@@ -213,6 +213,8 @@ PullPolicy is set to IfNotPresent to avoid unnecessary pulls:
 
 
 By following these steps, you should have used helm to deploy an application to a local kind cluster and be able to curl the endpoint.
+![Preview](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/kubernetes-via-docker-desktop.png)
+
 
 ### Resources
 https://docs.docker.com/docker-hub/repos/manage/hub-images/oci-artifacts/

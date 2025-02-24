@@ -18,6 +18,7 @@ To get started with the lab, confirm the following
 ```sh
     git clone https://github.com/docker/awesome-compose
     cd react-java-mysql
+    docker compose up -d
 ```
 
 ### Using Docker Logs to View Container Logs
@@ -117,10 +118,10 @@ The Table view shows the details for your containers. </br>
 You can customize the view by selecting which columns you want to display and which values you want to filter. </br>
 Here are the available columns:</br>
 
-NAME – The container name
-STATUS – The container status (running or not running)
-CPU (%) – The percentage of the host’s CPU and memory used by the container
-MEM (%) – The amount of memory used out of the total limit it’s allowed to use
-DISK READ/WRITE -The amount of data the container has read to and written from block devices on the host
-NETWORK I/O – The amount of data the container has sent and received over its network interface
-PIDs – the number of processes or threads the container has created
+NAME – The container name</br>
+STATUS – The container status (running or not running)</br>
+CPU (%) – The percentage of the host’s CPU and memory used by the container</br>
+MEM (%) – The amount of memory used out of the total limit it’s allowed to use</br>
+DISK READ/WRITE -The amount of data the container has read to and written from block devices on the host</br>
+NETWORK I/O – The amount of data the container has sent and received over its network interface</br>
+PIDs – the number of processes or threads the container has created</br>
