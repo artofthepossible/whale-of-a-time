@@ -96,12 +96,12 @@ To view the summary of image vulnerabilities and recommendations, we run the fir
     ```
 
 ## How would you resolve the "Supply chain attestations" policy evaluation results
-Images should have both a software bill of materials and a provenance attached.
+Images should have both a software bill of materials and a provenance attached.</br>
 
-|                  Requirement                 │  State   |
-|──────────────────────────────────────────────┼──────────|
-|  SBOM attestation exists                     │ Missing  |
-|  Provenance attestation with max mode exists │ Missing  |
+|                  Requirement                 │  State   |</br>
+|──────────────────────────────────────────────┼──────────|</br>
+|  SBOM attestation exists                     │ Missing  |</br>
+|  Provenance attestation with max mode exists │ Missing  |</br>
 7. To build a Docker image without using the cache and include SBOM and provenance attestations, you can use the --no-cache option with the docker buildx build command.
 
 **--no-cache**: This option ensures that the build process does not use any cached layers, forcing a fresh build of all layers.</br>
