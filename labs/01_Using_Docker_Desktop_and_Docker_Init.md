@@ -349,6 +349,10 @@ Fix: Start docker desktop with docker desktop start</br>
 ✓ Starting Docker Desktop</br>
 
 Error: Build Error: An error occurred during this build. Check the error logs for more details.</br>
+ 3 warnings found </br>
+ - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 12)</br>
+ - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 34)</br>
+ - FromAsCasing: 'as' and 'FROM' keywords' casing do not match (line 51)</br>
 Fix: </br>
 FROM eclipse-temurin:21-jdk-jammy as deps >> FROM eclipse-temurin:21-jdk-jammy AS deps</br>
 FROM package as extract >> FROM package AS extract</br>

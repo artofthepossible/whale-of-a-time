@@ -148,7 +148,6 @@ Regularly update your base image to get the latest security patches and updates<
 
 2. Make changes to your application:</br>
 Update your source code files as needed.</br>
-If using bind mounts for development, changes will be reflected immediately in the container</br>
 
 Spend time reviewing images built (size and packages) and consider changes to the Existing base image</br>
 ```sh

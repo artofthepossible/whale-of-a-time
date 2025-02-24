@@ -39,7 +39,7 @@ Implement security policies that govern how software is built, and the component
    ```sh 
    docker scout repo enable --org ORG_NAME ORG_NAME/scout-demo
    
-   docker scout repo enable --org demonstrationorg demonstrationorg/whale-of-a-time-server 
+   docker scout repo enable --org demonstrationorg demonstrationorg/whale-of-a-time-server:latest 
    
    ```
 You can also Manage repositories in the Docker Scout Dashboard → https://scout.docker.com/org/demonstrationorg/settings/repos
@@ -95,11 +95,6 @@ To view the summary of image vulnerabilities and recommendations, we run the fir
     docker scout recommendations demonstrationorg/whale-of-a-time-server:v1.0
     ```
 
-6. To  View policy violations, we run the third command
-    ```sh 
-   docker scout policy whale-of-a-time-server --org demonstrationorg
-    ```
-
 ## How would you resolve the "Supply chain attestations" policy evaluation results
 Images should have both a software bill of materials and a provenance attached.
 
@@ -144,7 +139,7 @@ docker buildx build --no-cache --push --sbom=true --provenance=true -t demonstra
 ### Part 4: Health Scores - Docker Hub:
 1. To view the health score of an image in Docker Hub: </br>
 
-2. Go to Docker Hub and sign in with your Docker Enterprise account. </br>
+2. Go to Docker Hub and sign in with your Docker Enterprise account. </br> or From Docker Desktop>Images> Hub Repositories>View in Hub
 3. Navigate to your organization's page. </br>
 4. In the list of repositories, you can see the health score of each repository based on the latest pushed tag. </br>
 ![HealthScores on Docker Hub](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/healthscores_dh.png)
@@ -163,3 +158,4 @@ a. In Docker Desktop, select View in Hub
 b. In Docker Hub, select [view in Docker Scout Dashboard](https://scout.docker.com/reports/org/demonstrationorg/images/host/hub.docker.com/repo/demonstrationorg%2Fwhale-of-a-time-scout-demo/tag/v3/digest/sha256%3A1ac649615092d9e30ff4d6c10ad84733d5212451e406b9a331143c1208f18ff4?utm_source=hub&utm_medium=actions-button&_gl=1*1kj2f6f*_gcl_aw*R0NMLjE3MzA3NjQyMDkuQ2owS0NRaUFfcUc1QmhEVEFSSXNBQTBVSFNLZ2NEcUJJenQ3a1JfaktfSmoyR1JBaC1heHd4QlJaQmpaMEc3TUlmand6STNPUktqVDhUUWFBbVdjRUFMd193Y0I.*_gcl_au*MTQxNjYwMDAzNC4xNzMzNzczMTAy*_ga*ODQyNDk2NzMyLjE3MDI0MDA3MjY.*_ga_XJWPQMJYHQ*MTczNjE4NjcxNy4xNTg1LjEuMTczNjE4OTQ5OC42MC4wLjA.)
 c. Under [Policy Status](https://scout.docker.com/reports/org/demonstrationorg/images/host/hub.docker.com/repo/demonstrationorg%2Fwhale-of-a-time-scout-demo/tag/v3/digest/sha256%3A1ac649615092d9e30ff4d6c10ad84733d5212451e406b9a331143c1208f18ff4/policy)
 ![HealthScores on Docker Scout](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/healthscores_ds.png)
+
