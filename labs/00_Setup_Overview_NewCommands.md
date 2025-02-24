@@ -32,6 +32,13 @@ $ docker desktop status
 ✓ Check status
 
 ```
+**Prerequisites**
+    1.  Enable image SBOM indexing</br>
+    2.  Enable background SBOM indexing</br>
+    3.  Enable the [containerd image store](https://docs.docker.com/desktop/features/containerd/) </br>
+    4.  Install docker desktop extensions: [disk usage](https://open.docker.com/extensions/marketplace?extensionId=docker/disk-usage-extension), [logs explorer](https://open.docker.com/extensions/marketplace?extensionId=docker/logs-explorer-extension) and [resource usage](https://open.docker.com/extensions/marketplace?extensionId=docker/resource-usage-extension)</br>
+    5.  How to generate [personal access token](https://docs.docker.com/security/for-developers/access-tokens/) </br>
+
 Docker Desktop is a one-click-install application for Mac, Linux, or Windows that allows you to build, share, and run containerized applications and microservices. With its user-friendly graphical interface, you can easily manage containers, applications, and images directly from your machine. Docker Desktop simplifies complex setup processes, enabling you to focus on writing code while it handles tasks like port mappings, file system concerns, and default settings, making it a reliable tool for developers.</br>
  
 ## Development Benefits
