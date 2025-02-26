@@ -9,25 +9,12 @@ Detect and Remediate vulnerabilities earlier in development to Improve you Secur
 ## Development Benefits
 ![Developer Flow](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/docker-scout-benefits.png)
 
-
 Time to Complete: 15-20 minutes
 
 ### How to Use This Hands-On Lab
 1. To get started with Docker Scout, you need to:
 a. Activate Docker Scout on at least one repository
-
-### Overview
-Docker Scout enhances container security by providing automated vulnerability detection and remediation, addressing insecure container images, and ensuring compliance with security standards.
-It Works well with Docker Desktop, GitHub Actions, Jenkins, Kubernetes, and other CI solutions.
-[Software supply chain security] (https://youtu.be/YzNK6E7APv0)
-[Software Bill Of Materials] (https://youtu.be/PbS4y7C7h4A)
-
-Building a secure software supply chain involves several key steps, such as:
-
-Identify the software components and dependencies you use to build and run your applications.
-Automate security testing throughout the software development lifecycle.
-Monitor your software supply chain for security threats.
-Implement security policies that govern how software is built, and the components it contains.
+b. Setup docker desktop settings: Enable image SBOM indexing, Enable background SBOM indexing, Enable containerd for pulling and storing images then apply and restart. The containerd image store extends the range of image types that Docker Engine can natively interact with. This unlocks various new use cases, including: Building multi-platform images and images with attestations
 
 ### Part 1: Enable Docker Scout
 1. Activate Docker Scout on atleast one repository
@@ -44,37 +31,12 @@ Implement security policies that govern how software is built, and the component
    ```
 You can also Manage repositories in the Docker Scout Dashboard → https://scout.docker.com/org/demonstrationorg/settings/repos
 
-2. Setup docker desktop settings
-    Enable image SBOM indexing.
-    Enable background SBOM indexing
-    Enable containerd for pulling and storing images then apply and restart 
-     The containerd image store extends the range of image types that Docker Engine can natively interact with. This unlocks various new use cases, including:
-        Building multi-platform images and images with attestations
-
 ### Part 2: Scout: Docker Desktop and CLI - Issue identification and Analysis
 
 Getting started with docker scout is significantly easier
 Its optimized scout for first time users who may not be security experts and lights up immediately as you point your images
 
-In our previous lab, we built our image which has some vulnerabilties.
-Additionally, this image is non-compliant with some policies below
-Missing supply chain attestation(s)
-
-To Fix - Missing supply chain attestation(s), Rebuild the image with a new tag and push it to your Docker Hub repository:
-
-    ```sh 
-    docker build --push --sbom=true --provenance=true -t demonstrationorg/whale-of-a-time-server:v1.0 .
-    ```
-
-1. Activate Docker Scout on the repository with ths command 
-  
-   ```sh 
-   docker scout repo enable --org ORG_NAME ORG_NAME/scout-demo
-   docker scout repo enable --org demonstrationorg demonstrationorg/whale-of-a-time-server:v1.0
-   ```
-
-   The command is successful, if you see ✓ Enabled Docker Scout on ORG_NAME/IMAGE_NAME 
-Alternatively, navigate to the following dashboard to Manage repositories in the Docker Scout Dashboard → https://scout.docker.com/org/demonstrationorg/settings/repos
+In our previous lab, we built our image which has some vulnerabilties. We can use the GUI or CLI to explore remediations and how we align to the firms policy guardrails
 
 We can use Docker Desktop to learn more about our applciation
 To Understand your application's dependencies, analyze the vulnerabilities, and act quickly with suggested remediation options. 
@@ -83,16 +45,19 @@ To Understand your application's dependencies, analyze the vulnerabilities, and 
 To view the summary of image vulnerabilities and recommendations, we run the first command listed here:
     ```sh 
     docker scout quickview demonstrationorg/whale-of-a-time-server:v1.0
+    docker scout quickview whale-of-a-time-server:latest
     ```
 
 4. To  View vulnerabilities, we run the second command docker scout cves
     ```sh 
     docker scout cves demonstrationorg/whale-of-a-time-server:v1.0
+    docker scout cves whale-of-a-time-server:latest
     ```
 
 5. To view the docker scout recommendations,we run the third command to compare and contrast the image across two builds,  
     ```sh 
     docker scout recommendations demonstrationorg/whale-of-a-time-server:v1.0
+    docker scout recommendations whale-of-a-time-server:latest
     ```
 
 ## How would you resolve the "Supply chain attestations" policy evaluation results
@@ -159,3 +124,30 @@ b. In Docker Hub, select [view in Docker Scout Dashboard](https://scout.docker.c
 c. Under [Policy Status](https://scout.docker.com/reports/org/demonstrationorg/images/host/hub.docker.com/repo/demonstrationorg%2Fwhale-of-a-time-scout-demo/tag/v3/digest/sha256%3A1ac649615092d9e30ff4d6c10ad84733d5212451e406b9a331143c1208f18ff4/policy)
 ![HealthScores on Docker Scout](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/healthscores_ds.png)
 
+
+### Overview
+Docker Scout is a comprehensive tool designed to enhance the security of containerized applications by providing detailed analysis and insights into container images. It operates as a standalone service and integrates seamlessly with Docker Desktop, Docker Hub, the Docker CLI, and the Docker Scout Dashboard. Docker Scout's primary function is to proactively secure the software supply chain by analyzing container images and compiling a Software Bill of Materials (SBOM). This SBOM is then matched against a continuously updated vulnerability database to identify and address security weaknesses.
+
+**Key Features of Docker Scout:**
+**Vulnerability Detection and Management**: Docker Scout performs automated vulnerability scans on container images, identifying known vulnerabilities early in the development process. This allows developers to address issues before they reach production, significantly reducing the risk of security breaches.
+
+**Software Bill of Materials (SBOM)**: Docker Scout generates an SBOM for each container image, providing a detailed inventory of all components and software packages. This is crucial for understanding the composition of images and ensuring compliance with security standards.
+
+**Health Scores**: Docker Scout assigns an alphabetical health score (A to F) to container images based on their security and compliance status. This score helps developers quickly assess the security posture of their images and prioritize remediation efforts.
+
+**Policy Management**: Developers can define custom security policies within Docker Scout to monitor compliance with organizational standards. This includes checking for outdated base images, ensuring non-root user specifications, and monitoring for critical vulnerabilities.
+
+**Continuous Monitoring**: Docker Scout continuously monitors images for new vulnerabilities, ensuring that they remain compliant with evolving security standards. This ongoing assessment helps maintain a secure software supply chain.
+
+**Integration with Development Tools**: Docker Scout integrates with popular development tools like GitHub Actions and CI/CD pipelines, providing seamless security management within existing workflows. This integration allows for early detection and remediation of vulnerabilities, keeping developers in flow and reducing the burden on security teams.
+
+Value for Developers:
+**Proactive Security**: By shifting security checks to the left, Docker Scout allows developers to identify and fix vulnerabilities early in the development cycle, reducing the cost and complexity of addressing issues later in production.
+
+**Enhanced Compliance**: Docker Scout simplifies compliance with security standards and regulatory requirements by providing detailed insights and automated checks, ensuring that container images meet organizational and industry standards.
+
+**Improved Efficiency**: With immediate feedback on security issues and policy violations, developers can maintain their workflow without significant disruptions, accelerating the development process and reducing time-to-market.
+
+**Comprehensive Insights**: The detailed analysis provided by Docker Scout, including SBOMs and health scores, empowers developers to make informed decisions about the security and compliance of their container images.
+
+Overall, Docker Scout is a valuable tool for developers seeking to enhance the security and compliance of their containerized applications, streamline their workflows, and reduce the risk of vulnerabilities reaching production. For more detailed information, you can refer to the Docker Scout documentation⁠.
