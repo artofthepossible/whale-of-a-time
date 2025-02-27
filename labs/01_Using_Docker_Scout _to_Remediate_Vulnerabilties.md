@@ -99,11 +99,14 @@ docker buildx build --no-cache --push --sbom=true --provenance=true -t demonstra
 
     The health score badge is color-coded to indicate the overall health of the repository: </br>
 
+```sh
     Green: A score of A or B.</br>
     Yellow: A score of C.</br>
     Orange: A score of D.</br>
     Red: A score of E or F.</br>
     Gray: An N/A score.</br>
+```
+
 ![HealthScores on Docker Desktop](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/healthscores_dd.png)
 
 ### Part 4: Health Scores - Docker Hub:
