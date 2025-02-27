@@ -11,16 +11,8 @@ Build your image
 Push image to registry
 Enable kubernetes single or multi-node cluster when starting Docker Desktop.
 
-### Part 1: Start Kubernetes on Docker Desktop
-
-1. Open Docker Desktop:
-   - Launch Docker Desktop  
-   ```sh
-   docker desktop start
-   ```
-Switched to context "docker-desktop".
-
-2. Enable Kubernetes:
+### Part 1: Enable Kubernetes on Docker Desktop
+1. Enable Kubernetes:
    ```sh
    - Click on the gear icon (⚙️) in the top-right corner to open the settings.
    - In the settings menu, navigate to the "Kubernetes" tab.
@@ -28,25 +20,24 @@ Switched to context "docker-desktop".
    - Click "Apply & Restart" to apply the changes and restart Docker Desktop.
    ```
 
-3. Wait for Kubernetes to Start:
    ```sh
    - Docker Desktop will take a few minutes to start Kubernetes. You can monitor the progress in the Docker Desktop status bar.
    - Once Kubernetes is running, you will see a green light next to "Kubernetes" in the Docker Desktop settings.
    ```
+2. Setup the context for docker-desktop
+   ```sh
+      kubectl config use-context docker-desktop
+   ```
+Switched to context "docker-desktop".
 
-4. Verify Kubernetes is Running:
+3. Verify Kubernetes is Running:
    - Open a terminal and run the following command to check the status of Kubernetes:
    ```sh
      kubectl get nodes
    ```
    - You should see a list of nodes indicating that Kubernetes is up and running.
 
-5. Setup the context for docker-desktop
-   ```sh
-      kubectl config use-context docker-desktop
-   ```
-
-6. Deploy an Application to Kubernetes:
+4. Deploy an Application to Kubernetes:
    - You can now deploy your applications to the local Kubernetes cluster using `kubectl` commands or Kubernetes manifests.
 
 ### Part 2: Create Helm chart
@@ -95,6 +86,23 @@ service:
 
    ```
 
+1c. If the image is stored in a private registry, Kubernetes needs credentials to pull it.</br>
+
+Create a Kubernetes secret:</br>
+```sh
+kubectl create secret docker-registry my-registry-secret \
+  --docker-username=dockerid \
+  --docker-password=dckr_pat_yourpersonalaccesstoken \
+  --docker-email=youremail@domain.com
+
+secret/my-registry-secret created
+```
+Reference the secret in your values.yaml:</br>
+```sh
+imagePullSecrets:
+  - name: regcred
+```
+
 2. Navigate to the Helm Chart Directory:
 a. Change directory to the Helm chart location:
 
@@ -105,11 +113,10 @@ This command will package a chart directory into a chart archive
       helm package .
    ```
 
-### Part 3: Using KIND with Docker Desktop to Deploy app to local k8 cluster 
+### Part 3: Using the helm chart to deploy the app to the local kind cluster
 Steps to deploy your Spring Boot application to a local kind cluster using the provided Helm charts.
 
-1. Using the helm chart to deploy the app to the local k8 cluster
-Deploy the Application Using Helm
+1. Deploy the Application Using Helm
 
 Example:
 ```sh
@@ -134,7 +141,7 @@ bash-3.2$ echo http://$NODE_IP:$NODE_PORT
 
 ```
 
-Note: If you don't see the above, save the helm chart with value and upgrade your install
+Note: If you don't see the above, save the helm chart with values and upgrade your install
 ```sh
 helm upgrade --install whale-of-a-time .
 ```
@@ -155,14 +162,14 @@ To uninstall the release
 helm uninstall whale-of-a-time
 ```
 
-5. Check the status of the pods:
+4. Check the status of the pods:
 To lists all pods running in a cluster, along with basic information like pod name, status, and age
 
 ```sh
 kubectl get pods
 ```
 
-6. Check the Services: Ensure that the pods are running.
+5. Check the Services: Ensure that the pods are running.
 To  List one or more services
 ```sh
 kubectl get services
@@ -182,24 +189,8 @@ helm list
 kubectl logs <pod-name>
 ```
 
-3. If the image is stored in a private registry, Kubernetes needs credentials to pull it.</br>
 
-Create a Kubernetes secret:</br>
-```sh
-kubectl create secret docker-registry my-registry-secret \
-  --docker-username=dockerid \
-  --docker-password=dckr_pat_yourpersonalaccesstoken \
-  --docker-email=youremail@domain.com
-
-secret/my-registry-secret created
-```
-Reference the secret in your values.yaml:</br>
-```sh
-imagePullSecrets:
-  - name: regcred
-```
-
-4. If you suspect, the image name or tag might be incorrect in your values.yaml </br>
+3. If you suspect, the image name or tag might be incorrect in your values.yaml </br>
 
 Verify the image name and tag:</br>
 
@@ -219,3 +210,10 @@ By following these steps, you should have used helm to deploy an application to 
 ### Resources
 https://docs.docker.com/docker-hub/repos/manage/hub-images/oci-artifacts/
 https://docs.docker.com/desktop/features/kubernetes/
+
+**kubectl get deployment whale-of-a-time**: Retrieves the status of the hello deployment.</br>
+**kubectl describe deployment whale-of-a-time**: Provides detailed information about the whale-of-a-time deployment, including events and conditions.</br>
+**kubectl get pods: To list pods </br>
+**kubectl describe pod <pod-name>**: Provides detailed information about a specific pod, including events and conditions.</br>
+**kubectl logs <pod-name>**: Retrieves the logs of a specific pod to help identify issues.</br>
+**kubectl get service**: Shows the services running in your Kubernetes cluster.</br>

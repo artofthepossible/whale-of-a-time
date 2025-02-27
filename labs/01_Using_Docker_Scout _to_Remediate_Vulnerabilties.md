@@ -76,14 +76,18 @@ Images should have both a software bill of materials and a provenance attached.<
 **-t whale-of-a-time-server**: This tags the image with the specified name.</br>
 
 Here's how you can do it:
-
+**Tag the Image**
 docker buildx build --no-cache --push --sbom=true --provenance=true -t ORG/IMAGE:TAG .
     ```sh 
 docker tag whale-of-a-time-server:latest demonstrationorg/whale-of-a-time:v1.0
+    ```
+**Push the Image**
+    ```sh
 docker buildx build --no-cache --push --sbom=true --provenance=true -t demonstrationorg/whale-of-a-time:v1.0 .
     ```
+8. In lab 3 - Base Image Selection , we will explore how making a change to our base images can help use further improve our applications.  
 
-   
+
 ### Part 3: Health Scores - Docker Desktop:
 
 1. To view the health score of an image in Docker Desktop:

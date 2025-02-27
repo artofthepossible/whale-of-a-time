@@ -1,0 +1,47 @@
+<configuration>
+
+
+   <!-- Define the log file path and name -->
+   <property name="LOG_PATH" value="/tmp" />
+   <property name="LOG_FILE" value="${LOG_PATH}/spring.log" />
+
+
+   <!-- Console appender for logging to the console -->
+   <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+       <encoder>
+           <pattern>%d{yyyy-MM-dd HH:mm:ss} - %msg%n</pattern>
+       </encoder>
+   </appender>
+
+
+   <!-- File appender for logging to a file -->
+   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+       <file>${LOG_FILE}</file>
+       <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+           <!-- daily rollover -->
+           <fileNamePattern>${LOG_PATH}/spring-%d{yyyy-MM-dd}.log</fileNamePattern>
+           <!-- keep 30 days' worth of history -->
+           <maxHistory>30</maxHistory>
+       </rollingPolicy>
+       <encoder>
+           <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+       </encoder>
+   </appender>
+
+
+   <!-- Root logger configuration -->
+   <root level="INFO">
+       <appender-ref ref="CONSOLE" />
+       <appender-ref ref="FILE" />
+   </root>
+
+
+   <!-- Spring framework logging configuration -->
+   <logger name="org.springframework" level="INFO" />
+
+
+   <!-- Application-specific logging configuration -->
+   <logger name="com.example.whale_of_a_time" level="INFO" />
+
+
+</configuration>

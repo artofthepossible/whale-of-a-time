@@ -86,12 +86,14 @@ This will allow you to direct logs to a specific directory that can be mounted a
 
 ```sh
 # filepath: /whale-of-a-time/src/main/resources/application.properties
-logging.file.path=/tmp/logs
+logging.file.path=/tmp
+logging.file.name=spring.log
+logging.level.com.example.whale_of_a_time=INFO
 ```
-To include a volume for /tmp/logs in your Dockerfile and Docker Compose file, you can follow these steps:</br>
+To include a volume for /tmp in your Dockerfile and Docker Compose file, you can follow these steps:</br>
 
 **Dockerfile Update**</br>
-1. Add the VOLUME /tmp/logs instruction to your Dockerfile. This will create a mount point with the specified path and mark it as </br>holding externally mounted volumes from native host or other containers.</br>
+1. Add the VOLUME /tmp instruction to your Dockerfile. This will create a mount point with the specified path and mark it as </br>holding externally mounted volumes from native host or other containers.</br>
 ```sh
 # ...existing code...
 
@@ -116,8 +118,9 @@ COPY --from=extract build/target/extracted/spring-boot-loader/ ./
 COPY --from=extract build/target/extracted/snapshot-dependencies/ ./
 COPY --from=extract build/target/extracted/application/ ./
 
-# Define the volume
-VOLUME /tmp/logs
+# Define a volume to persist logs outside the container's filesystem.
+# This allows logs to be accessible even after the container is stopped or removed.
+VOLUME /tmp
 
 EXPOSE 8080
 
@@ -134,7 +137,7 @@ services:
     ports:
       - "8080:8080"
     volumes:
-      - logs-volume:/tmp/logs
+      - logs-volume:/tmp
 volumes:
   logs-volume:
 ```
@@ -142,7 +145,7 @@ volumes:
 3. Save and commit the changes to the dockerfile and compose file
 Start your applications
 ```sh
-docker compose up --build
+docker compose up --build -d
 ```
 **View Volumes **</br>
 Volumes are managed by Docker and are not tied to a specific location on the host filesystem.  They're easy to manage with docker commands and offer better portability and often provide improved performance and backup capabilities.
