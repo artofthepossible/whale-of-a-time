@@ -76,21 +76,24 @@ Images should have both a software bill of materials and a provenance attached.<
 **-t whale-of-a-time-server**: This tags the image with the specified name.</br>
 
 Here's how you can do it:
-**Tag the Image**
-docker buildx build --no-cache --push --sbom=true --provenance=true -t ORG/IMAGE:TAG .
+**Tag the Image**</br>
+
     ```sh 
+docker buildx build --no-cache --push --sbom=true --provenance=true -t ORG/IMAGE:TAG .
+
 docker tag whale-of-a-time-server:latest demonstrationorg/whale-of-a-time:v1.0
     ```
-**Push the Image**
+**Push the Image**</br>
+
     ```sh
 docker buildx build --no-cache --push --sbom=true --provenance=true -t demonstrationorg/whale-of-a-time:v1.0 .
     ```
-8. In lab 3 - Base Image Selection , we will explore how making a change to our base images can help use further improve our applications.  
+8. In lab 3 - Base Image Selection , we will explore how making a change to our base images can help use further improve our applications.  </br>
 
 
-### Part 3: Health Scores - Docker Desktop:
+### Part 3: Health Scores - Docker Desktop:</br>
 
-1. To view the health score of an image in Docker Desktop:
+1. To view the health score of an image in Docker Desktop:</br>
 
     a. Open Docker Desktop and sign in to your Docker Enterprise account. </br>
     b. Navigate to the Images view and select the Hub tab.</br>
@@ -145,7 +148,7 @@ Docker Scout is a comprehensive tool designed to enhance the security of contain
 
 **Integration with Development Tools**: Docker Scout integrates with popular development tools like GitHub Actions and CI/CD pipelines, providing seamless security management within existing workflows. This integration allows for early detection and remediation of vulnerabilities, keeping developers in flow and reducing the burden on security teams.
 
-Value for Developers:
+Value for Developers:</br>
 **Proactive Security**: By shifting security checks to the left, Docker Scout allows developers to identify and fix vulnerabilities early in the development cycle, reducing the cost and complexity of addressing issues later in production.
 
 **Enhanced Compliance**: Docker Scout simplifies compliance with security standards and regulatory requirements by providing detailed insights and automated checks, ensuring that container images meet organizational and industry standards.
