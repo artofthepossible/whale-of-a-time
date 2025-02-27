@@ -79,14 +79,12 @@ Here's how you can do it:</br>
 **Tag the Image**</br>
 
     ```sh 
-docker buildx build --no-cache --push --sbom=true --provenance=true -t ORG/IMAGE:TAG .    
-
 docker tag whale-of-a-time-server:latest demonstrationorg/whale-of-a-time:v1.0
     ```
 
 
-
 **Push the Image**</br>
+
     ```sh 
 docker buildx build --no-cache --push --sbom=true --provenance=true -t demonstrationorg/whale-of-a-time:v1.0 .
     ```
