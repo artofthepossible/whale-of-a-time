@@ -78,20 +78,19 @@ Images should have both a software bill of materials and a provenance attached.<
 Here's how you can do it:</br>
 **Tag the Image**</br>
 
-```sh 
-docker buildx build --no-cache --push --sbom=true --provenance=true -t ORG/IMAGE:TAG .
-    ```
+    ```sh 
+docker buildx build --no-cache --push --sbom=true --provenance=true -t ORG/IMAGE:TAG .    
 
-```sh 
 docker tag whale-of-a-time-server:latest demonstrationorg/whale-of-a-time:v1.0
     ```
 
 
-**Push the Image**</br>
 
-```sh 
+**Push the Image**</br>
+    ```sh 
 docker buildx build --no-cache --push --sbom=true --provenance=true -t demonstrationorg/whale-of-a-time:v1.0 .
     ```
+
 
 8. In lab 3 - Base Image Selection , we will explore how making a change to our base images can help use further improve our applications.  </br>
 
