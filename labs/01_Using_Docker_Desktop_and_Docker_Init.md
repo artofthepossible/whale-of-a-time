@@ -194,8 +194,8 @@ Options Explained:
 **-XX:InitialRAMPercentage=50**: Sets the initial heap size as a percentage of the container's available memory.</br>
 **-XX:MaxRAMPercentage=80**: Sets the maximum heap size as a percentage of the container's available memory.</br>
 **-XX:+UseG1GC**: Enables the G1 Garbage Collector (G1GC), , which is often more efficient for containerized applications and optimized for low-latency.</br>
-**-XX:+ExitOnOutOfMemoryError: Ensures the JVM exits when an out-of-memory error occurs, allowing the container to restart if necessary.</br>
-**-Djava.security.egd=file:/dev/./urandom**: Improves startup time by using a faster randomness source performance.</br>
+**-XX:+ExitOnOutOfMemoryError**: Ensures the JVM exits when an out-of-memory error occurs, allowing the container to restart if necessary.</br>
+**-Djava.security.egd=file:/dev/./urandom**: Improves startup time</br>
 
 ```sh
 # syntax=docker/dockerfile:1

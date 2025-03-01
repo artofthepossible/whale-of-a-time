@@ -245,12 +245,19 @@ COPY --from=extract /build/target/extracted/application/ ./
 Copies the extracted JAR layers (dependencies, Spring Boot loader, snapshot dependencies, and application code) from the extract stage into the final image.
 [See documentation]⁠(https://docs.docker.com/reference/dockerfile/#copy)
 
+```sh
 EXPOSE 8080
-
+```
 Documents that the application listens on port 8080. This does not actually publish the port; it is for informational purposes.
 
 [See documentation]⁠(https://docs.docker.com/reference/dockerfile/#expose)
-ENTRYPOINT [ "java", "org.springframework.boot.loader.launch.JarLauncher" ]
+
+```sh
+ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:InitialRAMPercentage=50 -XX:MaxRAMPercentage=80 -XX:+UseG1GC -XX:+ExitOnOutOfMemoryError -Djava.security.egd=file:/dev/./urandom"
+
+# Define the entrypoint with Java options
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS org.springframework.boot.loader.launch.JarLauncher" ]
+```
 
 Sets the default command to run the application using the Spring Boot JarLauncher.
 
