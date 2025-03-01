@@ -246,9 +246,17 @@ Copies the extracted JAR layers (dependencies, Spring Boot loader, snapshot depe
 [See documentation]⁠(https://docs.docker.com/reference/dockerfile/#copy)
 
 ```sh
+# Define a volume to persist logs outside the container's filesystem.
+# This allows logs to be accessible even after the container is stopped or removed.
+VOLUME /tmp
+```
+
+Documents that the application listens on port 8080. This does not actually publish the port; it is for informational purposes.
+
+```sh
 EXPOSE 8080
 ```
-Documents that the application listens on port 8080. This does not actually publish the port; it is for informational purposes.
+The VOLUME/tmp logs directive declaires /tmp as a volume.  This meands docker will manage this directory separately from the container's filesystem, allowing logs to persist and managed externally.
 
 [See documentation]⁠(https://docs.docker.com/reference/dockerfile/#expose)
 
