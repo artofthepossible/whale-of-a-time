@@ -178,8 +178,8 @@ Set Environment Variables for Java Options: </br>
 
 Add the ENV JAVA_OPTS line to your Dockerfile to set useful Java options such as initial and maximum heap size, garbage collector, and entropy source.</br>
 
-# Set environment variables for Java options
-ENV JAVA_OPTS="-Xms512m -Xmx1024m -XX:+UseG1GC -Djava.security.egd=file:/dev/./urandom"
+# Set environment variables for Alternative Java options
+ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:InitialRAMPercentage=50 -XX:MaxRAMPercentage=80 -XX:+UseG1GC -XX:+ExitOnOutOfMemoryError -Djava.security.egd=file:/dev/./urandom"
 
 # Define the entrypoint with Java options
 ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS org.springframework.boot.loader.launch.JarLauncher" ]
@@ -188,16 +188,14 @@ ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS org.springframework.boot.loader.launch
 2. Define the Entrypoint: Modify the ENTRYPOINT to include the JAVA_OPTS environment variable, allowing you to pass JVM arguments when starting the application.</br>
 
 ✅ Breakdown of Options:</br>
+Options Explained:
 
--Xms512m: Sets the initial heap size to 512MB.</br>
--Xmx1024m: Limits the maximum heap size to 1024MB (1GB).</br>
--XX:+UseG1GC: Enables the G1 Garbage Collector (G1GC), which is optimized for low-latency applications.</br>
--Djava.security.egd=file:/dev/./urandom: Improves randomness source performance, speeding up application startup.
-
-Alternatives:
-ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:InitialRAMPercentage=50 -XX:MaxRAMPercentage=80 -XX:+UseG1GC -XX:+ExitOnOutOfMemoryError -Djava.security.egd=file:/dev/./urandom"</br>
-This makes the JVM container-aware, preventing out-of-memory issues.
-</br>
+**-XX:+UseContainerSupport**: Enables JVM optimizations for running in a container, such as respecting container memory limits.</br>
+**-XX:InitialRAMPercentage=50**: Sets the initial heap size as a percentage of the container's available memory.</br>
+**-XX:MaxRAMPercentage=80**: Sets the maximum heap size as a percentage of the container's available memory.</br>
+**-XX:+UseG1GC**: Enables the G1 Garbage Collector (G1GC), , which is often more efficient for containerized applications and optimized for low-latency.</br>
+**-XX:+ExitOnOutOfMemoryError: Ensures the JVM exits when an out-of-memory error occurs, allowing the container to restart if necessary.</br>
+**-Djava.security.egd=file:/dev/./urandom**: Improves startup time by using a faster randomness source performance.</br>
 
 ```sh
 # syntax=docker/dockerfile:1
@@ -295,8 +293,8 @@ VOLUME /tmp/logs
 # Expose the application port
 EXPOSE 8080
 
-# Set environment variables for Java options
-ENV JAVA_OPTS="-Xms512m -Xmx1024m -XX:+UseG1GC -Djava.security.egd=file:/dev/./urandom"
+
+ENV JAVA_OPTS="-XX:+UseContainerSupport -XX:InitialRAMPercentage=50 -XX:MaxRAMPercentage=80 -XX:+UseG1GC -XX:+ExitOnOutOfMemoryError -Djava.security.egd=file:/dev/./urandom"
 
 # Define the entrypoint with Java options
 ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS org.springframework.boot.loader.launch.JarLauncher" ]

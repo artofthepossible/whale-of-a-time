@@ -24,10 +24,7 @@ b. Setup docker desktop settings: Enable image SBOM indexing, Enable background 
    or via cli 
 
    ```sh 
-   docker scout repo enable --org ORG_NAME ORG_NAME/scout-demo
-   
-   docker scout repo enable --org demonstrationorg demonstrationorg/whale-of-a-time-server:latest 
-   
+   docker scout repo enable --org ORG_NAME ORG_NAME/scout-demo   
    ```
 You can also Manage repositories in the Docker Scout Dashboard → https://scout.docker.com/org/demonstrationorg/settings/repos
 
@@ -100,11 +97,11 @@ docker buildx build --no-cache --push --sbom=true --provenance=true -t demonstra
     The health score badge is color-coded to indicate the overall health of the repository: </br>
 
 ```sh
-    Green: A score of A or B.</br>
-    Yellow: A score of C.</br>
-    Orange: A score of D.</br>
-    Red: A score of E or F.</br>
-    Gray: An N/A score.</br>
+    Green: A score of A or B.
+    Yellow: A score of C.
+    Orange: A score of D.
+    Red: A score of E or F.
+    Gray: An N/A score.
 ```
 
 ![HealthScores on Docker Desktop](https://github.com/artofthepossible/whale-of-a-time/blob/main/labs/images/healthscores_dd.png)

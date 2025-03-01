@@ -99,8 +99,8 @@ Verify the images via docker desktop by Viewing the Build Details in Docker Desk
 
 7. Walkthrough of Build Timing:
 ```sh
-   - In the "History" section (if available), you can see the timing for each step of the build process. This helps you identify which steps took the longest and whether they were cached or not.</br>
-   - Cached steps are typically faster because Docker reuses the existing layers instead of rebuilding them from scratch.</br>
+   - In the "History" section (if available), you can see the timing for each step of the build process. This helps you identify which steps took the longest and whether they were cached or not.
+   - Cached steps are typically faster because Docker reuses the existing layers instead of rebuilding them from scratch.
 ```
 
 8. Review the History Section:
@@ -108,8 +108,8 @@ Verify the images via docker desktop by Viewing the Build Details in Docker Desk
    - In the "History" section, you can see the timing for each step of the build process. This helps you identify which steps took the longest and whether they were cached or not.</br>
    - Cached steps are typically faster because Docker reuses the existing layers instead of rebuilding them from scratch.</br>
 ```sh
-   - The "History" section shows a chronological list of all the layers and commands that were executed to create the image. </br>
-   This includes both cached and non-cached steps.</br>
+   - The "History" section shows a chronological list of all the layers and commands that were executed to create the image. 
+   This includes both cached and non-cached steps.
 ```
 
 ### Part 3: Attestations
