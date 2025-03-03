@@ -160,3 +160,76 @@ volumes:
 
 
 ```
+
+### DOCKER IGNORE
+```sh
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+.dockerignore
+compose.yaml
+Dockerfile
+spring-boot-app/templates/tests/test-connection.yaml
+spring-boot-app/templates/serviceaccount.yaml
+spring-boot-app/templates/service.yaml
+spring-boot-app/templates/NOTES.txt
+spring-boot-app/templates/ingress.yaml
+spring-boot-app/templates/hpa.yaml
+spring-boot-app/templates/deployment.yaml
+spring-boot-app/templates/_helpers.tpl
+spring-boot-app/values.yaml
+spring-boot-app/Chart.yaml
+spring-boot-app/.helmignore
+.gitignore
+whale-of-a-time/.helmignore
+whale-of-a-time/whale-of-a-time-0.1.0.tgz
+whale-of-a-time/templates/_helpers.tpl
+whale-of-a-time/templates/deployment.yaml
+whale-of-a-time/templates/hpa.yaml
+whale-of-a-time/templates/ingress.yaml
+whale-of-a-time/Chart.yaml
+whale-of-a-time/values.yaml
+whale-of-a-time/templates/NOTES.txt
+whale-of-a-time/templates/service.yaml
+whale-of-a-time/templates/serviceaccount.yaml
+whale-of-a-time/templates/tests/test-connection.yaml
+pom.xml
+src/test/java/com/example/MyAppTest.java
+pom.xml
+pom.xml
+pom.xml
+pom.xml
+pom.xml
+src/test/java/com/example/whale_of_a_time/WhaleOfATimeApplicationTests.java
+
+```
