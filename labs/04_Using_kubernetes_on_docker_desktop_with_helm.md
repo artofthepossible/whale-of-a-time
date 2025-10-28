@@ -66,11 +66,11 @@ This command will generate the following files:
     # Overrides the image tag whose default is the chart appVersion.
   - tag: ""
 
-+ image:
-  + repository: demonstrationorg/whale-of-a-time:v4.0
+ image:
+    repository: demonstrationorg/whale-of-a-time
     pullPolicy: IfNotPresent
     # Overrides the image tag whose default is the chart appVersion.
-  + tag: "v1.0"
+    tag: "v4.0"
    ```
 
 1b. Update the values.yaml to point to the target deployment artifcact/image 
@@ -100,7 +100,7 @@ secret/my-registry-secret created
 Reference the secret in your values.yaml:</br>
 ```sh
 imagePullSecrets:
-  - name: regcred
+   - name: my-registry-secret
 ```
 
 2. Navigate to the Helm Chart Directory:
